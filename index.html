@@ -24,15 +24,15 @@
   h1,h2,h3{font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.01em;}
   .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
 
-  header{position:sticky; top:0; z-index:50; background:rgba(246,245,241,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
-  nav.wrap{display:flex; justify-content:space-between; align-items:center; height:64px;}
-  .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem;}
+  header{position:sticky; top:0; z-index:50; background:rgba(246,245,241,0.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex; justify-content:space-between; align-items:center; height:64px; flex-wrap:wrap; gap:8px;}
+  .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem; flex-shrink:0;}
   .brand .dot{color:var(--accent);}
-  nav ul{list-style:none; display:flex; gap:26px;}
-  nav a{color:var(--ink); text-decoration:none; font-size:0.9rem; font-weight:500;}
+  nav ul{list-style:none; display:flex; gap:11px; flex-wrap:nowrap; justify-content:flex-end; max-width:56%;}
+  nav a{color:var(--ink); text-decoration:none; font-size:0.68rem; font-weight:500; white-space:nowrap;}
   nav a:hover{color:var(--accent);}
 
-  .hero{padding:80px 0 64px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:220px 1fr; gap:48px; align-items:center;}
+  .hero{padding:72px 0 56px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:220px 1fr; gap:48px; align-items:center;}
   .portrait{width:200px; height:200px; border-radius:50%; overflow:hidden; border:1px solid var(--line);}
   .portrait img{width:100%; height:100%; object-fit:cover;}
   .callsign{display:inline-block; font-size:0.75rem; color:var(--steel); border:1px solid var(--line); padding:4px 10px; border-radius:2px; margin-bottom:16px;}
@@ -48,6 +48,7 @@
   .eyebrow{font-size:0.75rem; color:var(--steel); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:10px;}
   section{padding:64px 0; border-bottom:1px solid var(--line);}
   section h2{font-size:1.6rem; margin-bottom:32px;}
+  section .lead{color:var(--muted); max-width:64ch; margin-bottom:32px; font-size:0.96rem;}
 
   .entry{display:grid; grid-template-columns:180px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line);}
   .entry:first-child{border-top:1px solid var(--line);}
@@ -66,15 +67,24 @@
   .awards li{margin-bottom:10px; font-size:0.92rem; color:var(--muted); break-inside:avoid;}
   .awards li strong{color:var(--ink); font-weight:500;}
 
-  #about p{max-width:64ch; color:var(--muted); margin-bottom:14px;}
+  #who p{max-width:64ch; color:var(--muted); margin-bottom:14px;}
 
-  footer{padding:36px 0; text-align:center; color:var(--muted); font-size:0.85rem;}
-  footer .links{margin-top:10px; display:flex; gap:18px; justify-content:center;}
-  footer a{color:var(--steel); text-decoration:none;}
-  footer a:hover{color:var(--accent);}
+  .journal-placeholder{
+    border:1px dashed var(--line); border-radius:2px; padding:48px 24px;
+    text-align:center; color:var(--muted); background:var(--panel);
+  }
+  .journal-placeholder .mono{display:block; margin-bottom:8px; color:var(--steel); font-size:0.75rem;}
 
-  @media (max-width:700px){
-    nav ul{gap:14px; font-size:0.85rem;}
+  .reach-row{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;}
+  .reach-info p{color:var(--muted); font-size:0.94rem; margin-bottom:6px;}
+  .reach-info a{color:var(--ink); text-decoration:none;}
+  .reach-info a:hover{color:var(--accent);}
+  .reach-links{display:flex; gap:14px; flex-wrap:wrap;}
+
+  footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.82rem;}
+
+  @media (max-width:760px){
+    nav ul{justify-content:flex-start; gap:10px; max-width:100%; flex-wrap:wrap;}
     .hero{grid-template-columns:1fr; text-align:center;}
     .portrait{margin:0 auto;}
     .hero-actions{justify-content:center;}
@@ -90,11 +100,12 @@
   <nav class="wrap">
     <div class="brand">nevaan carey<span class="dot">.</span></div>
     <ul>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#who">Who I Am</a></li>
+      <li><a href="#academic">Academic Journey</a></li>
+      <li><a href="#build">What I Build</a></li>
+      <li><a href="#questions">Explorations</a></li>
+      <li><a href="#lead">Taking the Lead</a></li>
+      <li><a href="#recognition">Recognition</a></li>
     </ul>
   </nav>
 </header>
@@ -114,10 +125,22 @@
   </div>
 </section>
 
-<section id="education">
+<section id="who">
   <div class="wrap">
-    <div class="eyebrow">01 — Education</div>
-    <h2>Education</h2>
+    <div class="eyebrow">01 — Who I Am</div>
+    <h2>Who I Am</h2>
+    <p>I'm a high school student with a deep interest in aerospace systems, space robotics, and applied engineering — with a strong focus on building, leading, and deploying real-world solutions.</p>
+    <p>My work spans UAV systems, embedded electronics, and space science research: from building quadcopters and RC aircraft, to leading Project S.H.A.N.I., where I worked with an international team to design a conceptual sampling system for Titan's surface.</p>
+    <p>Beyond technical projects, I care about applying engineering for social impact — as founder of a rural STEM initiative, I design and deliver hands-on electronics and robotics curricula to underserved students.</p>
+    <p>Looking ahead, I hope to pursue engineering at a leading global institution and contribute to projects that advance technology while transforming lives.</p>
+    <p class="mono" style="font-size:0.8rem; color:var(--steel); margin-top:20px;">More to come here — a longer personal story, photos, and voice.</p>
+  </div>
+</section>
+
+<section id="academic">
+  <div class="wrap">
+    <div class="eyebrow">02 — Academic Journey</div>
+    <h2>Academic Journey</h2>
 
     <div class="entry">
       <div><div class="when mono">JUL 2025 – JUN 2027</div></div>
@@ -148,10 +171,80 @@
   </div>
 </section>
 
-<section id="experience">
+<section id="build">
   <div class="wrap">
-    <div class="eyebrow">02 — Experience</div>
-    <h2>Experience</h2>
+    <div class="eyebrow">03 — What I Build</div>
+    <h2>What I Build</h2>
+    <p class="lead">Hands-on hardware projects — UAVs, flight controllers, and embedded systems built, broken, and rebuilt along the way.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="mono">APR 2026</span>
+        <h3>Build Guild — Micro Drone</h3>
+        <p>Built, calibrated, and flight-tested a micro drone prototype with stable autonomous altitude hold and orientation-independent control. 2nd place finish.</p>
+      </div>
+      <div class="card">
+        <span class="mono">OCT 2025 – JAN 2026</span>
+        <h3>SonoStep: Assistive Navigation System</h3>
+        <p>Raspberry Pi–based smart cane with a camera-based vision system for obstacle detection, real-time audio feedback, and GPS point-to-point navigation.</p>
+      </div>
+      <div class="card">
+        <span class="mono">NOV 2024 – JAN 2025</span>
+        <h3>FPV Quadcopter with Pixhawk</h3>
+        <p>Resolved key performance issues in a prior UAV by transitioning from Arduino to Pixhawk 2.4.8, adding GPS, telemetry, and AV transmitters.</p>
+      </div>
+      <div class="card">
+        <span class="mono">JUN 2024 – NOV 2024</span>
+        <h3>"Slow Fly" RC Plane</h3>
+        <p>Developed and tested a low-speed RC plane using a 1000KV BLDC motor, 30A ESC, and SG90 servos — built for the S.P.A.R.K. Expo 2024.</p>
+      </div>
+      <div class="card">
+        <span class="mono">AUG 2023 – NOV 2023</span>
+        <h3>Quadcopter using Arduino Microcontroller</h3>
+        <p>My most challenging early build — Arduino isn't suited for stable flight control, but after months of iteration, produced a working flying quadcopter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="wrap">
+    <div class="eyebrow">04 — Explorations</div>
+    <h2>Explorations</h2>
+    <p class="lead">Research and open-ended curiosity — the questions I've chased outside the classroom.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="mono">CIPQ · NOV 2025 – ONGOING</span>
+        <h3>Solar Integration in Mini Quadcopters</h3>
+        <p>Independent research into the impact of solar integration on quadcopter flight time and power efficiency under measured wind, temperature, and humidity conditions — culminating in a 5,000-word report.</p>
+      </div>
+      <div class="card">
+        <span class="mono">JUL 2025 – AUG 2025</span>
+        <h3>Space Sweepers</h3>
+        <p>Comparative research on the top three Active Debris Removal strategies built so far, focusing on operational viability and long-term sustainability.</p>
+      </div>
+      <div class="card">
+        <span class="mono">JUN 2025 – JUL 2025</span>
+        <h3>Astrophysics Workshop &amp; Training</h3>
+        <p>30-day workshop covering observational techniques through to stellar astrophysics, gravitational waves, and high-energy physics — assessment cleared with flying colors.</p>
+      </div>
+      <div class="card">
+        <span class="mono">MAY 2025 – JUN 2025</span>
+        <h3>S.H.A.N.I. — Titan Sample Collector</h3>
+        <p>Conceptual design for a Saturnian Hydrocarbon Analysis and Navigation Instrument, developed with an international team of 10 for the Sinlap crater on Titan.</p>
+      </div>
+      <div class="card">
+        <span class="mono">MAY 2025</span>
+        <h3>Robotics in Space — Summer Camp @ T-Works</h3>
+        <p>Designed a model CubeSat and developed multiple embedded systems projects using NodeMCU and Arduino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lead">
+  <div class="wrap">
+    <div class="eyebrow">05 — Taking the Lead and Giving Back</div>
+    <h2>Taking the Lead and Giving Back</h2>
 
     <div class="entry">
       <div><div class="when mono">JUL 2025 – ONGOING</div></div>
@@ -163,20 +256,11 @@
     </div>
 
     <div class="entry">
-      <div><div class="when mono">JUN 2025 – AUG 2025</div></div>
-      <div>
-        <div class="org">Mechanica, IIT Madras</div>
-        <h3>Summer Intern — Research</h3>
-        <p>Combined training and research internship covering astrophysics and space debris retrieval, culminating in a comparative study of active debris removal strategies.</p>
-      </div>
-    </div>
-
-    <div class="entry">
       <div><div class="when mono">MAY 2025 – JUN 2025</div></div>
       <div>
         <div class="org">Junior Space Scientist Program, Genex Space</div>
         <h3>Team Leader — Project S.H.A.N.I.</h3>
-        <p>Led an international team of 10 researchers to design a conceptual surface-sampling system for Titan's Sinlap crater, using an autonomous coaxial-octocopter rotorcraft concept.</p>
+        <p>Led an international team of 10 researchers to design a conceptual surface-sampling system for Titan's Sinlap crater.</p>
       </div>
     </div>
 
@@ -186,6 +270,15 @@
         <div class="org">Independent Social Impact — Founder</div>
         <h3>Rural STEM Education Initiative</h3>
         <p>Working with 30+ students at a rural government school in Andhra Pradesh, introducing electronics, circuits, and robotics through 200+ hours of hands-on instruction.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div><div class="when mono">APR 2026 – ONGOING</div></div>
+      <div>
+        <div class="org">STEM Education Fundraising Initiative</div>
+        <h3>Founder &amp; Organizer</h3>
+        <p>Initiated and led a community outreach campaign that raised funds to procure and distribute electronics learning kits to government school students.</p>
       </div>
     </div>
 
@@ -200,30 +293,13 @@
   </div>
 </section>
 
-<section id="achievements">
+<section id="recognition">
   <div class="wrap">
-    <div class="eyebrow">03 — Achievements</div>
-    <h2>Competitive Achievements &amp; Honors</h2>
-
-    <div class="entry">
-      <div><div class="when mono">APR 2026</div></div>
-      <div>
-        <div class="org">Build Guild 2026</div>
-        <h3>2nd Place — Drone Building Competition</h3>
-        <p>Built, calibrated, and flight-tested a micro drone prototype with stable autonomous altitude hold and orientation-independent control.</p>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div><div class="when mono">OCT 2025 – JAN 2026</div></div>
-      <div>
-        <div class="org">Young Innovators Programme, IIT Kharagpur</div>
-        <h3>National Runner-Up — SonoStep</h3>
-        <p>An assistive smart-cane system built on Raspberry Pi with camera-based obstacle detection, real-time audio feedback, and GPS navigation.</p>
-      </div>
-    </div>
-
+    <div class="eyebrow">06 — Recognition</div>
+    <h2>Recognition</h2>
     <ul class="awards">
+      <li><strong>2nd Place</strong> — Build Guild 2026, Drone Building Competition</li>
+      <li><strong>National Runner-Up</strong> — Young Innovators Programme 2026, IIT Kharagpur</li>
       <li><strong>1st Place</strong> — AFC Chess Tournament, 2025</li>
       <li><strong>2nd Place</strong> — A2H Chess Academy Tournament, 2024</li>
       <li><strong>1st Place</strong> — A1 King's Chess Tournament, 2023</li>
@@ -237,66 +313,39 @@
   </div>
 </section>
 
-<section id="projects">
+<section id="journal">
   <div class="wrap">
-    <div class="eyebrow">04 — Projects</div>
-    <h2>Selected Projects</h2>
-    <div class="grid">
-      <div class="card">
-        <span class="mono">CIPQ · NOV 2025 – ONGOING</span>
-        <h3>Solar Integration in Mini Quadcopters</h3>
-        <p>Independent research into the impact of solar integration on quadcopter flight time and power efficiency under measured wind, temperature, and humidity conditions — culminating in a 5,000-word report.</p>
-      </div>
-      <div class="card">
-        <span class="mono">OCT 2025 – JAN 2026</span>
-        <h3>SonoStep: Assistive Navigation System</h3>
-        <p>Raspberry Pi–based smart cane with a YOLO-powered vision system for obstacle detection, real-time audio feedback, and GPS point-to-point navigation.</p>
-      </div>
-      <div class="card">
-        <span class="mono">JUL 2025 – AUG 2025</span>
-        <h3>Space Sweepers</h3>
-        <p>Comparative research paper on Active Debris Removal — robotic arms, net capture systems, and electrodynamic tethers — drawing on research from 2019–2025.</p>
-      </div>
-      <div class="card">
-        <span class="mono">MAY 2025 – JUN 2025</span>
-        <h3>S.H.A.N.I. — Titan Sample Collector</h3>
-        <p>Concept design for a Saturnian Hydrocarbon Analysis and Navigation Instrument, developed with an international team of 10 for the Sinlap crater on Titan.</p>
-      </div>
-      <div class="card">
-        <span class="mono">NOV 2024 – JAN 2025</span>
-        <h3>FPV Quadcopter with Pixhawk</h3>
-        <p>Resolved key performance issues in a prior UAV by transitioning from Arduino to Pixhawk 2.4.8, adding GPS, telemetry, and AV transmitters.</p>
-      </div>
-      <div class="card">
-        <span class="mono">AUG 2023 – NOV 2023</span>
-        <h3>Quadcopter using Arduino Microcontroller</h3>
-        <p>A challenging early build — Arduino isn't suited for stable flight control, but after months of failed attempts, produced a working flying quadcopter for the S.P.A.R.K. Expo.</p>
-      </div>
+    <div class="eyebrow">07 — A Visual Journal</div>
+    <h2>A Visual Journal</h2>
+    <div class="journal-placeholder">
+      <span class="mono">COMING SOON</span>
+      Photos and videos from builds, competitions, and workshops will live here — send them over whenever you're ready and we'll add a gallery.
     </div>
   </div>
 </section>
 
-<section id="about">
+<section id="reach" style="border-bottom:none;">
   <div class="wrap">
-    <div class="eyebrow">05 — About</div>
-    <h2>About Me</h2>
-    <p>I'm a high school student with a deep interest in aerospace systems, space robotics, and applied engineering — with a strong focus on building, leading, and deploying real-world solutions.</p>
-    <p>My work spans UAV systems, embedded electronics, and space science research: from building quadcopters and RC aircraft, to leading Project S.H.A.N.I., where I worked with an international team to design a conceptual sampling system for Titan's surface. I've also researched space debris mitigation, analyzing mission architectures and long-term sustainability challenges in orbit.</p>
-    <p>Beyond technical projects, I care about applying engineering for social impact. As founder of a rural STEM initiative, I design and deliver hands-on electronics and robotics curricula to underserved students — bridging the gap between rural communities and access to opportunity.</p>
-    <p>Looking ahead, I hope to pursue engineering at a leading global institution and contribute to projects that advance technology while transforming lives.</p>
+    <div class="eyebrow">08 — Reach Me</div>
+    <h2>Reach Me</h2>
+    <div class="reach-row">
+      <div class="reach-info">
+        <p><strong>Email:</strong> <a href="mailto:Nevaancarey@gmail.com">Nevaancarey@gmail.com</a></p>
+        <p><strong>Phone:</strong> +91 7036777761</p>
+        <p><strong>Location:</strong> Ashok Nagar, Hyderabad</p>
+      </div>
+      <div class="reach-links">
+        <a href="https://www.linkedin.com/in/nevaancareymeduri/" class="btn btn-ghost" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Nevaancarey" class="btn btn-ghost" target="_blank">GitHub</a>
+        <a href="https://www.youtube.com/@nevaancarey2009" class="btn btn-ghost" target="_blank">YouTube</a>
+        <a href="mailto:Nevaancarey@gmail.com" class="btn btn-primary">Email Me</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="mono">thecareyspace.xyz</div>
-    <div class="links">
-      <a href="mailto:Nevaancarey@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/nevaancareymeduri/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Nevaancarey" target="_blank">GitHub</a>
-      <a href="https://www.youtube.com/@nevaancarey2009" target="_blank">YouTube</a>
-    </div>
-  </div>
+  <div class="wrap mono">thecareyspace.xyz</div>
 </footer>
 
 </body>
