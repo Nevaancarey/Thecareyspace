@@ -82,4 +82,4 @@ function loginPage(wrongPassword, debugInfo) {
   </div>
 </body>
 </html>`;
-}
+} 
