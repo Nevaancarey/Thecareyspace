@@ -15,7 +15,8 @@ export default {
       const form = await request.formData();
       const attempt = (form.get('password') || '').trim();
 
-      if (attempt === env.SITE_PASSWORD) {
+      const expected = (env.SITE_PASSWORD || '').trim();
+      if (attempt === expected) {
         const headers = new Headers({
           'Location': '/',
           'Set-Cookie': 'carey_auth=ok; Path=/; HttpOnly; Secure; Max-Age=86400; SameSite=Lax'
