@@ -19,13 +19,22 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
+  a, .icon-btn, nav a, .btn{cursor:none;}
+  #drone-cursor{
+    position:fixed; top:0; left:0; width:34px; height:34px;
+    pointer-events:none; z-index:9999; opacity:0;
+    transition:opacity .1s ease; transform:translate(-50%,-50%);
+  }
+  #drone-cursor.active{opacity:1;}
+  .blade{transform-box:fill-box; transform-origin:center; animation:spin .12s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
   body{background:var(--base); color:var(--ink); font-family:'Inter', sans-serif; line-height:1.65;}
   .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
   h1,h2,h3{font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.01em;}
   .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
 
   header{position:sticky; top:0; z-index:50; background:rgba(246,245,241,0.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
-  nav.wrap{display:flex; justify-content:space-between; align-items:center; height:64px; flex-wrap:wrap; gap:8px;}
+  nav.wrap{display:flex; justify-content:space-between; align-items:center; min-height:64px; flex-wrap:wrap; gap:8px; padding-top:10px; padding-bottom:10px;}
   .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem; flex-shrink:0;}
   .brand .dot{color:var(--accent);}
   nav ul{list-style:none; display:flex; gap:11px; flex-wrap:nowrap; justify-content:flex-end; max-width:56%;}
@@ -91,21 +100,33 @@
   footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.82rem;}
 
   @media (max-width:760px){
+    .wrap{padding:0 18px;}
     nav ul{justify-content:flex-start; gap:10px; max-width:100%; flex-wrap:wrap;}
+    .hero{padding:48px 0 40px; gap:28px;}
     .hero{grid-template-columns:1fr; text-align:center;}
-    .portrait{margin:0 auto;}
+    .portrait{width:150px; height:150px; margin:0 auto;}
     .hero-actions{justify-content:center;}
+    section{padding:44px 0;}
+    section h2{font-size:1.35rem;}
     .grid{grid-template-columns:1fr;}
-    .entry{grid-template-columns:1fr;}
+    .entry{grid-template-columns:1fr; gap:8px;}
     .awards{columns:1;}
+    .reach-row{justify-content:center; text-align:center;}
+    .reach-links{justify-content:center;}
+  }
+
+  @media (max-width:420px){
+    nav a{font-size:0.62rem;}
+    .icon-btn{width:40px; height:40px;}
+    .hero h1{font-size:1.6rem;}
+    .hero .role{font-size:0.9rem;}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <nav class="wrap">
-    <div class="brand">nevaan carey<span class="dot">.</span></div>
+  <nav class="wrap" style="justify-content:flex-end;">
     <ul>
       <li><a href="#who">Who I Am</a></li>
       <li><a href="#academic">Academic Journey</a></li>
@@ -156,7 +177,6 @@
 
 <section id="who">
   <div class="wrap">
-    <div class="eyebrow">01 — Who I Am</div>
     <h2>Who I Am</h2>
     <p>I'm a high school student with a deep interest in aerospace systems, space robotics, and applied engineering — with a strong focus on building, leading, and deploying real-world solutions.</p>
     <p>My work spans UAV systems, embedded electronics, and space science research: from building quadcopters and RC aircraft, to leading Project S.H.A.N.I., where I worked with an international team to design a conceptual sampling system for Titan's surface.</p>
@@ -168,7 +188,6 @@
 
 <section id="academic">
   <div class="wrap">
-    <div class="eyebrow">02 — Academic Journey</div>
     <h2>Academic Journey</h2>
 
     <div class="entry">
@@ -202,7 +221,6 @@
 
 <section id="build">
   <div class="wrap">
-    <div class="eyebrow">03 — What I Build</div>
     <h2>What I Build</h2>
     <p class="lead">Hands-on hardware projects — UAVs, flight controllers, and embedded systems built, broken, and rebuilt along the way.</p>
     <div class="grid">
@@ -237,7 +255,6 @@
 
 <section id="questions">
   <div class="wrap">
-    <div class="eyebrow">04 — Explorations</div>
     <h2>Explorations</h2>
     <p class="lead">Research and open-ended curiosity — the questions I've chased outside the classroom.</p>
     <div class="grid">
@@ -272,7 +289,6 @@
 
 <section id="lead">
   <div class="wrap">
-    <div class="eyebrow">05 — Taking the Lead and Giving Back</div>
     <h2>Taking the Lead and Giving Back</h2>
 
     <div class="entry">
@@ -324,7 +340,6 @@
 
 <section id="recognition">
   <div class="wrap">
-    <div class="eyebrow">06 — Recognition</div>
     <h2>Recognition</h2>
     <ul class="awards">
       <li><strong>2nd Place</strong> — Build Guild 2026, Drone Building Competition</li>
@@ -344,7 +359,6 @@
 
 <section id="journal">
   <div class="wrap">
-    <div class="eyebrow">07 — A Visual Journal</div>
     <h2>A Visual Journal</h2>
     <div class="journal-placeholder">
       <span class="mono">COMING SOON</span>
@@ -355,19 +369,12 @@
 
 <section id="reach" style="border-bottom:none;">
   <div class="wrap">
-    <div class="eyebrow">08 — Reach Me</div>
     <h2>Reach Me</h2>
     <div class="reach-row">
       <div class="reach-info">
         <p><strong>Email:</strong> <a href="mailto:Nevaancarey@gmail.com">Nevaancarey@gmail.com</a></p>
         <p><strong>Phone:</strong> +91 7036777761</p>
         <p><strong>Location:</strong> Ashok Nagar, Hyderabad</p>
-      </div>
-      <div class="reach-links">
-        <a href="https://www.linkedin.com/in/nevaancareymeduri/" class="btn btn-ghost" target="_blank">LinkedIn</a>
-        <a href="https://github.com/Nevaancarey" class="btn btn-ghost" target="_blank">GitHub</a>
-        <a href="https://www.youtube.com/@nevaancarey2009" class="btn btn-ghost" target="_blank">YouTube</a>
-        <a href="mailto:Nevaancarey@gmail.com" class="btn btn-primary">Email Me</a>
       </div>
     </div>
   </div>
@@ -376,6 +383,38 @@
 <footer>
   <div class="wrap mono">thecareyspace.xyz</div>
 </footer>
+
+<div id="drone-cursor" aria-hidden="true">
+  <svg width="34" height="34" viewBox="0 0 32 32">
+    <g stroke="#101E33" stroke-width="1.6" stroke-linecap="round" fill="none">
+      <line x1="11" y1="11" x2="16" y2="16"/>
+      <line x1="21" y1="11" x2="16" y2="16"/>
+      <line x1="11" y1="21" x2="16" y2="16"/>
+      <line x1="21" y1="21" x2="16" y2="16"/>
+    </g>
+    <rect x="13" y="13" width="6" height="6" rx="1.4" fill="#101E33"/>
+    <g transform="translate(7,7)"><line class="blade" x1="-4.5" y1="0" x2="4.5" y2="0" stroke="#C97D2C" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g transform="translate(25,7)"><line class="blade" x1="-4.5" y1="0" x2="4.5" y2="0" stroke="#C97D2C" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g transform="translate(7,25)"><line class="blade" x1="-4.5" y1="0" x2="4.5" y2="0" stroke="#C97D2C" stroke-width="1.8" stroke-linecap="round"/></g>
+    <g transform="translate(25,25)"><line class="blade" x1="-4.5" y1="0" x2="4.5" y2="0" stroke="#C97D2C" stroke-width="1.8" stroke-linecap="round"/></g>
+  </svg>
+</div>
+
+<script>
+(function(){
+  var cursor = document.getElementById('drone-cursor');
+  var interactiveSelector = 'a, .icon-btn, .btn';
+  document.addEventListener('mousemove', function(e){
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    var el = e.target.closest(interactiveSelector);
+    cursor.classList.toggle('active', !!el);
+  });
+  document.addEventListener('mouseleave', function(){
+    cursor.classList.remove('active');
+  });
+})();
+</script>
 
 </body>
 </html>
