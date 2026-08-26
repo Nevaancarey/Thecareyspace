@@ -23,7 +23,8 @@ export default {
         });
         return new Response(null, { status: 302, headers });
       }
-      return new Response(loginPage(true), {
+      const debugInfo = `You typed ${attempt.length} character(s). Server expected ${expected.length} character(s). Secret is ${env.SITE_PASSWORD === undefined ? 'NOT SET' : 'set'}.`;
+      return new Response(loginPage(true, debugInfo), {
         status: 401,
         headers: { 'Content-Type': 'text/html' }
       });
@@ -41,7 +42,7 @@ export default {
   }
 };
 
-function loginPage(wrongPassword) {
+function loginPage(wrongPassword, debugInfo) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,6 +76,7 @@ function loginPage(wrongPassword) {
         <button type="submit">Enter</button>
       </form>
       ${wrongPassword ? '<div class="gate-error">Sorry, that password\'s not right — please try again or check the password.</div>' : ''}
+      ${wrongPassword && debugInfo ? `<div class="gate-error" style="color:#FFD180; margin-top:8px;">${debugInfo}</div>` : ''}
     </div>
   </div>
 </body>
