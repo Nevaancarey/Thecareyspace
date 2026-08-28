@@ -19,12 +19,13 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-  html, body, a, .icon-btn, nav a, .btn{cursor:none;}
+  a, .icon-btn, nav a, .btn{cursor:none;}
   #drone-cursor{
     position:fixed; top:0; left:0; width:48px; height:48px;
-    pointer-events:none; z-index:9999; opacity:1;
-    transform:translate(-50%,-50%);
+    pointer-events:none; z-index:9999; opacity:0;
+    transition:opacity .08s ease; transform:translate(-50%,-50%);
   }
+  #drone-cursor.active{opacity:1;}
   .blade{transform-box:fill-box; transform-origin:center;}
   #drone-cursor.active .blade{animation:spin .12s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg);}}
@@ -85,6 +86,25 @@
 
   #who p{max-width:64ch; color:var(--muted); margin-bottom:14px;}
 
+  .slider{position:relative; overflow:hidden; border-radius:2px; border:1px solid var(--line); background:var(--panel);}
+  .slider-track{display:flex; transition:transform 0.5s ease;}
+  .slide{min-width:100%; aspect-ratio:16/9; overflow:hidden;}
+  .slide img{width:100%; height:100%; object-fit:cover; display:block;}
+  .slider-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:38px; height:38px; border-radius:50%; border:none;
+    background:rgba(16,30,51,0.55); color:#fff; font-size:1.4rem;
+    display:flex; align-items:center; justify-content:center;
+    line-height:0; padding-bottom:4px;
+  }
+  .slider-btn:hover{background:rgba(201,125,44,0.85);}
+  .slider-btn.prev{left:12px;}
+  .slider-btn.next{right:12px;}
+  @media (max-width:500px){
+    .slide{aspect-ratio:4/3;}
+    .slider-btn{width:32px; height:32px; font-size:1.15rem;}
+  }
+
   .journal-placeholder{
     border:1px dashed var(--line); border-radius:2px; padding:48px 24px;
     text-align:center; color:var(--muted); background:var(--panel);
@@ -120,6 +140,18 @@
     .icon-btn{width:40px; height:40px;}
     .hero h1{font-size:1.6rem;}
     .hero .role{font-size:0.9rem;}
+  }
+
+  @media (min-width:1200px){
+    .wrap{max-width:1240px;}
+    nav a{font-size:0.85rem;}
+    .hero{padding:96px 0 76px; gap:64px;}
+    .hero h1{font-size:3rem;}
+    .hero .role{font-size:1.08rem; max-width:62ch;}
+    section{padding:80px 0;}
+    section h2{font-size:1.9rem;}
+    .grid{gap:28px;}
+    .card{padding:28px;}
   }
 </style>
 </head>
@@ -182,7 +214,33 @@
     <p>My work spans UAV systems, embedded electronics, and space science research: from building quadcopters and RC aircraft, to leading Project S.H.A.N.I., where I worked with an international team to design a conceptual sampling system for Titan's surface.</p>
     <p>Beyond technical projects, I care about applying engineering for social impact — as founder of a rural STEM initiative, I design and deliver hands-on electronics and robotics curricula to underserved students.</p>
     <p>Looking ahead, I hope to pursue engineering at a leading global institution and contribute to projects that advance technology while transforming lives.</p>
-    <p class="mono" style="font-size:0.8rem; color:var(--steel); margin-top:20px;">More to come here — a longer personal story, photos, and voice.</p>
+    <p class="mono" style="font-size:0.8rem; color:var(--steel); margin-top:20px;">More to come here — a longer personal story and voice.</p>
+  </div>
+</section>
+
+<section id="journey" style="border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <h2>A Photo Journey</h2>
+    <div class="slider">
+      <div class="slider-track" id="slider-track">
+        <div class="slide"><img src="assets/journal-01.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-02.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-03.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-04.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-05.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-06.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-07.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-08.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-09.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-10.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-11.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-12.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-13.jpg" alt=""></div>
+        <div class="slide"><img src="assets/journal-14.jpg" alt=""></div>
+      </div>
+      <button class="slider-btn prev" id="slider-prev" aria-label="Previous photo">&#8249;</button>
+      <button class="slider-btn next" id="slider-next" aria-label="Next photo">&#8250;</button>
+    </div>
   </div>
 </section>
 
@@ -389,10 +447,8 @@
     <g stroke-width="1.8" stroke-linecap="round" fill="none">
       <line x1="10" y1="10" x2="16" y2="16" stroke="#D93025"/>
       <line x1="22" y1="22" x2="16" y2="16" stroke="#D93025"/>
-      <line x1="22" y1="10" x2="16" y2="16" stroke="#FFFFFF" stroke-width="2.4"/>
-      <line x1="22" y1="10" x2="16" y2="16" stroke="#101E33" stroke-width="0.6" stroke-dasharray="0.1,2.6"/>
-      <line x1="10" y1="22" x2="16" y2="16" stroke="#FFFFFF" stroke-width="2.4"/>
-      <line x1="10" y1="22" x2="16" y2="16" stroke="#101E33" stroke-width="0.6" stroke-dasharray="0.1,2.6"/>
+      <line x1="22" y1="10" x2="16" y2="16" stroke="#101E33"/>
+      <line x1="10" y1="22" x2="16" y2="16" stroke="#101E33"/>
     </g>
     <rect x="12.5" y="12.5" width="7" height="7" rx="1.6" fill="#101E33"/>
     <g transform="translate(7,7)"><line class="blade" x1="-5.5" y1="0" x2="5.5" y2="0" stroke="#2E9E44" stroke-width="2" stroke-linecap="round"/></g>
@@ -415,6 +471,45 @@
   document.addEventListener('mouseleave', function(){
     cursor.classList.remove('active');
   });
+})();
+
+(function(){
+  var track = document.getElementById('slider-track');
+  var slides = track ? track.children : [];
+  var total = slides.length;
+  if (total === 0) return;
+  var index = 0;
+  var intervalId;
+
+  function goTo(i){
+    index = (i + total) % total;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+  }
+
+  function next(){ goTo(index + 1); }
+  function prev(){ goTo(index - 1); }
+
+  function startAuto(){
+    intervalId = setInterval(next, 4000);
+  }
+  function stopAuto(){
+    clearInterval(intervalId);
+  }
+  function restartAuto(){
+    stopAuto();
+    startAuto();
+  }
+
+  document.getElementById('slider-next').addEventListener('click', function(){
+    next();
+    restartAuto();
+  });
+  document.getElementById('slider-prev').addEventListener('click', function(){
+    prev();
+    restartAuto();
+  });
+
+  startAuto();
 })();
 </script>
 
