@@ -42,19 +42,19 @@
   nav a{color:var(--ink); text-decoration:none; font-size:0.68rem; font-weight:500; white-space:nowrap;}
   nav a:hover{color:var(--accent);}
 
-  .hero{padding:72px 0 56px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:220px 1fr; gap:48px; align-items:center;}
-  .portrait{width:200px; height:200px; border-radius:50%; overflow:hidden; border:1px solid var(--line);}
+  .hero{padding:72px 0 56px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:400px 1fr; gap:48px; align-items:center;}
+  .portrait{width:400px; height:400px; border-radius:50%; overflow:hidden; border:1px solid var(--line);}
   .portrait img{width:100%; height:100%; object-fit:cover;}
   .callsign{display:inline-block; font-size:0.75rem; color:var(--steel); border:1px solid var(--line); padding:4px 10px; border-radius:2px; margin-bottom:16px;}
   .hero h1{font-size:clamp(1.9rem, 4vw, 2.6rem); line-height:1.15;}
   .hero .role{margin-top:10px; color:var(--muted); font-size:1rem; max-width:56ch;}
-  .hero-actions{margin-top:24px; display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-actions{margin-top:28px; display:flex; gap:18px; flex-wrap:wrap;}
   .icon-btn{
-    width:44px; height:44px; border:1px solid var(--ink); border-radius:2px;
+    width:58px; height:58px; border:1px solid var(--ink); border-radius:2px;
     display:flex; align-items:center; justify-content:center;
     color:var(--ink); text-decoration:none;
   }
-  .icon-btn svg{width:20px; height:20px;}
+  .icon-btn svg{width:28px; height:28px;}
   .icon-btn:hover{border-color:var(--accent); color:var(--accent);}
   .btn{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.88rem; padding:10px 20px; border-radius:2px; text-decoration:none; display:inline-block; border:1px solid var(--ink);}
   .btn-primary{background:var(--ink); color:var(--base);}
@@ -85,6 +85,18 @@
   .awards li strong{color:var(--ink); font-weight:500;}
 
   #who p{max-width:64ch; color:var(--muted); margin-bottom:14px;}
+
+  .highlights{display:grid; grid-template-columns:repeat(5, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:36px;}
+  .highlight-card{background:var(--panel); padding:26px 18px; text-align:center;}
+  .highlight-card svg{width:30px; height:30px; margin-bottom:14px;}
+  .highlight-card h3{font-size:0.92rem; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:8px;}
+  .highlight-card p{font-size:0.82rem; color:var(--muted); max-width:none;}
+  @media (max-width:760px){
+    .highlights{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:480px){
+    .highlights{grid-template-columns:1fr;}
+  }
 
   .slider{position:relative; overflow:hidden; border-radius:2px; border:1px solid var(--line); background:var(--panel);}
   .slider-track{display:flex; transition:transform 0.5s ease;}
@@ -174,7 +186,6 @@
   <div class="portrait"><img src="assets/profile.jpg" alt="Nevaan Carey Meduri"></div>
   <div>
     <h1>Nevaan Carey Meduri</h1>
-    <p class="role">Student &amp; Head of Stewardship at Keystone School · Runner-Up, Young Innovators Programme (IIT Kharagpur) · UAV Systems Builder · STEM Educator · Aspiring Space Robotics Scientist · FIDE Rated Chess Player</p>
     <div class="hero-actions">
       <a href="https://www.linkedin.com/in/nevaancareymeduri/" class="icon-btn" target="_blank" title="LinkedIn" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.7c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.74-2.57 3.54V23h-4V8.5z"/></svg>
@@ -201,7 +212,7 @@
         </svg>
       </a>
       <a href="assets/resume.pdf" class="icon-btn" target="_blank" title="Resume" aria-label="Resume">
-        <img src="assets/cv-icon.png" alt="Resume" style="width:32px; height:32px; object-fit:contain;">
+        <img src="assets/cv-icon.png" alt="Resume" style="width:42px; height:42px; object-fit:contain;">
       </a>
     </div>
   </div>
@@ -210,11 +221,38 @@
 <section id="who">
   <div class="wrap">
     <h2>Who I Am</h2>
-    <p>I'm a high school student with a deep interest in aerospace systems, space robotics, and applied engineering — with a strong focus on building, leading, and deploying real-world solutions.</p>
-    <p>My work spans UAV systems, embedded electronics, and space science research: from building quadcopters and RC aircraft, to leading Project S.H.A.N.I., where I worked with an international team to design a conceptual sampling system for Titan's surface.</p>
-    <p>Beyond technical projects, I care about applying engineering for social impact — as founder of a rural STEM initiative, I design and deliver hands-on electronics and robotics curricula to underserved students.</p>
-    <p>Looking ahead, I hope to pursue engineering at a leading global institution and contribute to projects that advance technology while transforming lives.</p>
-    <p class="mono" style="font-size:0.8rem; color:var(--steel); margin-top:20px;">More to come here — a longer personal story and voice.</p>
+    <p>I'm Nevaan Carey Meduri, a Cambridge A Level student passionate about technology, problem-solving, and creating solutions that make a real impact. My interests lie at the intersection of robotics, electronics, and artificial intelligence. From building drones and embedded systems to developing assistive devices like SonoStep for the visually impaired, I love turning ideas into practical innovations.</p>
+    <p>Beyond academics, I believe in giving back. For the past two years, I've mentored 30+ students from a rural government school, introducing them to STEM through hands-on workshops in electronics, robotics, and drone technology — helping them dream bigger and build confidence.</p>
+    <p>As Head of Stewardship at my school, I've had the privilege of leading initiatives that promote responsibility, sustainability, and community service. I'm a lifelong learner, constantly exploring new technologies and challenging myself to grow.</p>
+    <p>My goal is simple: to innovate with purpose and use technology to create a more inclusive and sustainable world.</p>
+
+    <div class="highlights">
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C97D2C" stroke-width="1.6"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.45.9 1.15.9 1.9V16h5.2v-.2c0-.75.3-1.45.9-1.9A6 6 0 0 0 12 3z"/></svg>
+        <h3>Innovator</h3>
+        <p>Passionate about building impactful solutions using robotics, AI, and electronics.</p>
+      </div>
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C97D2C" stroke-width="1.6"><circle cx="8.5" cy="8" r="3"/><path d="M2.5 19c0-3 2.5-5.5 6-5.5s6 2.5 6 5.5"/><circle cx="17" cy="9" r="2.4"/><path d="M15 19c0-2.4 1.7-4.3 4-4.6"/></svg>
+        <h3>Mentor</h3>
+        <p>Mentored 30+ rural students in STEM, inspiring curiosity and confidence.</p>
+      </div>
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C97D2C" stroke-width="1.6"><circle cx="12" cy="8" r="4.5"/><path d="M8 12.2 6.5 21 12 18l5.5 3-1.5-8.8"/></svg>
+        <h3>Leader</h3>
+        <p>Head of Stewardship, leading initiatives for service and sustainability.</p>
+      </div>
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C97D2C" stroke-width="1.6"><circle cx="12" cy="12" r="2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M17.7 6.3l-2.1 2.1M8.4 15.6l-2.1 2.1"/></svg>
+        <h3>Builder</h3>
+        <p>Hands-on experience in drones, embedded systems, and IoT projects.</p>
+      </div>
+      <div class="highlight-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C97D2C" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+        <h3>Lifelong Learner</h3>
+        <p>Always exploring, always learning, always pushing boundaries.</p>
+      </div>
+    </div>
   </div>
 </section>
 
