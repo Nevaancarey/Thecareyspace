@@ -32,9 +32,20 @@
   nav a{color:var(--ink); text-decoration:none; font-size:0.68rem; font-weight:500; white-space:nowrap;}
   nav a:hover{color:var(--accent);}
 
-  .hero{padding:72px 0 56px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:225px 1fr; gap:48px; align-items:center;}
-  .portrait{width:225px; height:225px; border-radius:50%; overflow:hidden; border:1px solid var(--line); box-shadow:0 8px 24px rgba(16,30,51,0.12);}
-  .portrait img{width:100%; height:100%; object-fit:cover;}
+  .hero{
+    padding:72px 0 56px; border-bottom:1px solid var(--line);
+    background-color:#53704B;
+    background-image:url('hero-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    color:#F6F5F1;
+  }
+  .hero-inner{display:grid; grid-template-columns:225px 1fr; gap:48px; align-items:center;}
+  .hero h1{color:#F6F5F1;}
+  .hero .icon-btn{border-color:rgba(246,245,241,0.55); color:#F6F5F1;}
+  .hero .icon-btn:hover{border-color:#F4C77A; color:#F4C77A;}
+  .portrait{width:225px;}
+  .portrait img{width:100%; height:auto; display:block;}
   .callsign{display:inline-block; font-size:0.75rem; color:var(--steel); border:1px solid var(--line); padding:4px 10px; border-radius:2px; margin-bottom:16px;}
   .hero h1{font-size:clamp(1.9rem, 4vw, 2.6rem); line-height:1.15;}
   .hero .role{margin-top:10px; color:var(--muted); font-size:1rem; max-width:56ch;}
@@ -124,9 +135,9 @@
   @media (max-width:760px){
     .wrap{padding:0 18px;}
     nav ul{justify-content:flex-start; gap:10px; max-width:100%; flex-wrap:wrap;}
-    .hero{padding:48px 0 40px; gap:28px;}
-    .hero{grid-template-columns:1fr; text-align:center;}
-    .portrait{width:135px; height:135px; margin:0 auto;}
+    .hero{padding:48px 0 40px;}
+    .hero-inner{grid-template-columns:1fr; text-align:center; gap:28px;}
+    .portrait{width:150px; margin:0 auto;}
     .hero-actions{justify-content:center;}
     section{padding:44px 0;}
     section h2{font-size:1.35rem;}
@@ -147,7 +158,8 @@
   @media (min-width:1200px){
     .wrap{max-width:1240px;}
     nav a{font-size:0.85rem;}
-    .hero{padding:96px 0 76px; gap:64px;}
+    .hero{padding:96px 0 76px;}
+    .hero-inner{gap:64px;}
     .hero h1{font-size:3rem;}
     .hero .role{font-size:1.08rem; max-width:62ch;}
     section{padding:80px 0;}
