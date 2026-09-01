@@ -130,18 +130,6 @@
     .timeline-item .timeline-dot{left:12px !important; right:auto !important;}
   }
 
-  .highlights{display:grid; grid-template-columns:repeat(5, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:36px;}
-  .highlight-card{background:var(--panel); padding:26px 18px; text-align:center;}
-  .highlight-card svg{width:30px; height:30px; margin-bottom:14px;}
-  .highlight-card h3{font-size:0.92rem; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:8px;}
-  .highlight-card p{font-size:0.82rem; color:var(--muted); max-width:none;}
-  @media (max-width:760px){
-    .highlights{grid-template-columns:1fr 1fr;}
-  }
-  @media (max-width:480px){
-    .highlights{grid-template-columns:1fr;}
-  }
-
   .slider{position:relative; overflow:hidden; border-radius:2px; border:1px solid var(--line); background:var(--panel);}
   .slider-track{display:flex; transition:transform 0.5s ease;}
   .slide{min-width:100%; aspect-ratio:16/9; overflow:hidden;}
