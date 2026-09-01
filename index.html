@@ -20,6 +20,7 @@
       <li><a href="explorations.html">Explorations</a></li>
       <li><a href="lead.html">Taking the Lead</a></li>
       <li><a href="recognition.html">Recognition</a></li>
+      <li><a href="perspective.html">Perspective</a></li>
     </ul>
   </nav>
 </header>
@@ -127,12 +128,19 @@
 
 <section id="reach" style="border-bottom:none;">
   <div class="wrap">
-    <h2>Reach Me</h2>
     <div class="reach-row">
       <div class="reach-info">
+        <h2>Reach Me</h2>
         <p><strong>Email:</strong> <a href="mailto:Nevaancarey@gmail.com">Nevaancarey@gmail.com</a></p>
         <p><strong>Phone:</strong> +91 7036777761</p>
         <p><strong>Location:</strong> Ashok Nagar, Hyderabad</p>
+      </div>
+      <div class="song-block">
+        <div class="song-header mono">Current Song On Repeat:</div>
+        <div class="song-thumb" id="song-thumb">
+          <img id="song-thumb-img" src="" alt="Current favourite song">
+          <span class="play-icon">&#9658;</span>
+        </div>
       </div>
     </div>
   </div>
@@ -180,6 +188,25 @@
   });
 
   startAuto();
+})();
+
+(function(){
+  var songs = ['3Kxf2dHlDpQ', 'yP32JFCwxB0', 'cnRB2CgUpSw', 'pYZVof0j0DI', 'Kx7B-XvmFtE'];
+  var refSunday = new Date('2026-01-04T00:00:00');
+  var now = new Date();
+  var diffDays = Math.floor((now - refSunday) / 86400000);
+  var weekIndex = Math.floor(diffDays / 7);
+  var idx = ((weekIndex % songs.length) + songs.length) % songs.length;
+  var videoId = songs[idx];
+
+  var thumb = document.getElementById('song-thumb');
+  var thumbImg = document.getElementById('song-thumb-img');
+  if (thumb && thumbImg) {
+    thumbImg.src = 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg';
+    thumb.addEventListener('click', function(){
+      thumb.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    });
+  }
 })();
 
 </script>
