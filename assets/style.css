@@ -33,7 +33,7 @@
   nav a:hover{color:var(--accent);}
 
   .hero{
-    padding:72px 0 56px; border-bottom:1px solid var(--line);
+    padding:24px 0; border-bottom:1px solid var(--line);
     background-color:#53704B;
     background-image:url('hero-bg.jpg');
     background-size:cover;
@@ -191,7 +191,7 @@
   @media (max-width:760px){
     .wrap{padding:0 18px;}
     nav ul{justify-content:flex-start; gap:10px; max-width:100%; flex-wrap:wrap;}
-    .hero{padding:48px 0 40px;}
+    .hero{padding:20px 0;}
     .hero-inner{grid-template-columns:1fr; text-align:center; gap:28px;}
     .portrait{width:150px; margin:0 auto;}
     .hero-actions{justify-content:center;}
@@ -217,7 +217,7 @@
   @media (min-width:1200px){
     .wrap{max-width:1240px;}
     nav a{font-size:0.85rem;}
-    .hero{padding:96px 0 76px;}
+    .hero{padding:28px 0;}
     .hero-inner{gap:64px;}
     .hero h1{font-size:3rem;}
     .hero .role{font-size:1.08rem; max-width:62ch;}
