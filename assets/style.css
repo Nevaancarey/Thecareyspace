@@ -127,7 +127,7 @@
   .category-block h3{font-size:1.2rem; margin-bottom:12px;}
   .category-empty{color:var(--muted); font-size:0.92rem; font-style:italic;}
 
-  .rocket-timeline{position:relative; max-width:820px; margin:0 auto; min-height:1250px;}
+  .rocket-timeline{position:relative; max-width:820px; margin:0 auto; min-height:950px;}
   .rocket-path{
     position:absolute; left:50%; top:20px; bottom:0; width:12px;
     background:linear-gradient(var(--accent), #F4C77A);
@@ -135,15 +135,15 @@
   }
   .rocket-fire-svg{position:absolute; left:0; right:0; bottom:0; width:100%; height:110px; z-index:2;}
 
-  .rocket-ship-pos{position:absolute; left:50%; top:88.8%; animation:rocketMove 12s linear infinite; z-index:3;}
+  .rocket-ship-pos{position:absolute; left:50%; top:89.47%; animation:rocketMove 12s linear infinite; z-index:3;}
   .rocket-ship-icon{position:absolute; transform:translate(-50%,-50%);}
 
   @keyframes rocketMove{
-    0%    {top:88.8%; opacity:1;}
+    0%    {top:89.47%; opacity:1;}
     82%   {top:2%;    opacity:1;}
     88%   {top:-6%;   opacity:0;}
-    88.1% {top:88.8%; opacity:0;}
-    100%  {top:88.8%; opacity:1;}
+    88.1% {top:89.47%; opacity:0;}
+    100%  {top:89.47%; opacity:1;}
   }
 
   .rt-dot{
