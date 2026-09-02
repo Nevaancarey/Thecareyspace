@@ -124,6 +124,27 @@
   .category-block:last-child{border-bottom:none;}
   .category-block h3{font-size:1.2rem; margin-bottom:12px;}
   .category-empty{color:var(--muted); font-size:0.92rem; font-style:italic;}
+
+  .orbit-wrap{height:60vh; min-height:340px; max-height:560px; display:flex; align-items:center; justify-content:center; margin:24px 0 8px;}
+  .orbit-inner{position:relative; width:100%; max-width:1000px; aspect-ratio:1000/480; max-height:100%; margin:0 auto;}
+  .orbit-inner svg{width:100%; height:100%; display:block;}
+  .orbit-label{
+    position:absolute; transform:translate(-50%,-50%); text-decoration:none; text-align:center;
+    display:flex; flex-direction:column; gap:2px; max-width:170px; line-height:1.25;
+  }
+  .orbit-label .o-year{color:var(--accent); font-size:0.68em; display:block;}
+  .orbit-label .o-title{color:var(--ink); font-family:'Space Grotesk',sans-serif; font-weight:600; display:block;}
+  .orbit-label:hover .o-title, .orbit-label.orbit-active .o-title{color:var(--accent);}
+  .project-detail{
+    background:var(--panel); border:1px solid var(--line); border-radius:2px;
+    padding:24px 28px; max-width:700px; margin:0 auto;
+  }
+  .project-detail p{color:var(--muted); font-size:0.94rem;}
+  @media (max-width:700px){
+    .orbit-wrap{height:auto; min-height:0;}
+    .orbit-inner{aspect-ratio:1000/620;}
+    .orbit-label{max-width:110px; font-size:0.85em !important;}
+  }
   @media (max-width:700px){
     .timeline::before{left:18px;}
     .timeline-item{width:100%; left:0 !important; padding:0 0 32px 46px;}
