@@ -129,63 +129,44 @@
 
   .rocket-timeline{position:relative; max-width:820px; margin:0 auto; min-height:1250px;}
   .rocket-path{
-    position:absolute; left:50%; top:20px; bottom:150px; width:6px;
+    position:absolute; left:50%; top:20px; bottom:0; width:12px;
     background:linear-gradient(var(--accent), #F4C77A);
-    transform:translateX(-50%); border-radius:3px;
+    transform:translateX(-50%); border-radius:6px; z-index:1;
   }
-  .rocket-fire-svg{position:absolute; left:50%; bottom:0; width:220px; height:66px; transform:translateX(-50%);}
+  .rocket-fire-svg{position:absolute; left:0; right:0; bottom:0; width:100%; height:110px; z-index:2;}
 
-  .rocket-ship-pos{position:absolute; left:50%; top:88.8%; animation:rocketMove 16s linear infinite;}
-  .rocket-ship-icon{position:absolute; transform:translate(-50%,-50%) rotate(0deg); animation:rocketSpin 16s linear infinite;}
+  .rocket-ship-pos{position:absolute; left:50%; top:88.8%; animation:rocketMove 12s linear infinite; z-index:3;}
+  .rocket-ship-icon{position:absolute; transform:translate(-50%,-50%);}
 
   @keyframes rocketMove{
-    0%   {top:88.8%; left:50%;}
-    45%  {top:2%;    left:50%;}
-    50%  {top:-4%;   left:50%;}
-    60%  {top:8%;    left:88%;}
-    75%  {top:45%;   left:88%;}
-    88%  {top:75%;   left:65%;}
-    100% {top:88.8%; left:50%;}
-  }
-  @keyframes rocketSpin{
-    0%   {transform:translate(-50%,-50%) rotate(0deg);}
-    45%  {transform:translate(-50%,-50%) rotate(0deg);}
-    50%  {transform:translate(-50%,-50%) rotate(20deg);}
-    60%  {transform:translate(-50%,-50%) rotate(90deg);}
-    75%  {transform:translate(-50%,-50%) rotate(160deg);}
-    88%  {transform:translate(-50%,-50%) rotate(210deg);}
-    100% {transform:translate(-50%,-50%) rotate(360deg);}
+    0%    {top:88.8%; opacity:1;}
+    82%   {top:2%;    opacity:1;}
+    88%   {top:-6%;   opacity:0;}
+    88.1% {top:88.8%; opacity:0;}
+    100%  {top:88.8%; opacity:1;}
   }
 
-  .rt-item{position:absolute; width:calc(50% - 46px); display:flex; align-items:center; gap:14px;}
-  .rt-right{left:calc(50% + 46px);}
-  .rt-left{right:calc(50% + 46px); flex-direction:row-reverse; text-align:right;}
   .rt-dot{
-    position:absolute; width:11px; height:11px; border-radius:50%;
+    position:absolute; left:50%; width:13px; height:13px; border-radius:50%;
     background:var(--accent); border:3px solid var(--base); box-shadow:0 0 0 1px var(--line);
-    top:50%; transform:translateY(-50%);
+    transform:translate(-50%,-50%); z-index:2;
   }
-  .rt-right .rt-dot{left:-32px;}
-  .rt-left .rt-dot{right:-32px;}
+  .rt-item{position:absolute; width:calc(50% - 46px);}
+  .rt-right{left:calc(50% + 46px);}
+  .rt-left{right:calc(50% + 46px); text-align:right;}
+  .rt-item::before{content:''; position:absolute; top:50%; height:2px; background:var(--line); width:34px;}
+  .rt-right::before{left:-34px;}
+  .rt-left::before{right:-34px;}
   .rt-content{background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:14px 16px;}
   .rt-year{color:var(--accent); font-size:0.72rem; display:block; margin-bottom:4px;}
   .rt-content p{color:var(--ink); font-size:0.88rem; margin:0;}
 
   @media (max-width:760px){
     .rocket-path{left:26px; transform:none;}
-    .rocket-fire-svg{left:26px; transform:none; width:160px;}
     .rocket-ship-pos{left:26px;}
-    @keyframes rocketMove{
-      0%   {top:88.8%; left:26px;}
-      45%  {top:2%;    left:26px;}
-      50%  {top:-4%;   left:26px;}
-      60%  {top:8%;    left:80%;}
-      75%  {top:45%;   left:80%;}
-      88%  {top:75%;   left:50%;}
-      100% {top:88.8%; left:26px;}
-    }
-    .rt-item{width:calc(100% - 60px); left:60px !important; right:auto !important; flex-direction:row !important; text-align:left !important;}
-    .rt-dot{left:-46px !important; right:auto !important;}
+    .rt-dot{left:26px;}
+    .rt-item{width:calc(100% - 60px); left:60px !important; right:auto !important; text-align:left !important;}
+    .rt-item::before{left:-34px !important; right:auto !important;}
   }
 
   .orbit-wrap{height:60vh; min-height:340px; max-height:560px; display:flex; align-items:center; justify-content:center; margin:24px 0 8px;}
