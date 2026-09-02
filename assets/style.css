@@ -67,7 +67,7 @@
   section{padding:64px 0; border-bottom:1px solid var(--line);}
   section h2{font-size:1.6rem; margin-bottom:32px;}
   section .lead{color:var(--muted); max-width:64ch; margin-bottom:32px; font-size:0.96rem;}
-  .blink-blue{color:#2563EB; animation:blinkSlow 2.5s ease-in-out infinite;}
+  .blink-blue{color:#1E3A8A; font-weight:700; animation:blinkSlow 2.5s ease-in-out infinite;}
   @keyframes blinkSlow{0%,100%{opacity:1;} 50%{opacity:0.3;}}
 
   .entry{display:grid; grid-template-columns:180px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line);}
