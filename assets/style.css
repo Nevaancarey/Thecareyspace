@@ -42,8 +42,8 @@
   }
   .hero-inner{display:grid; grid-template-columns:225px 1fr; gap:48px; align-items:center;}
   .hero h1{color:#F6F5F1;}
-  .hero .icon-btn{color:#F6F5F1;}
-  .hero .icon-btn:hover{color:#F4C77A;}
+  .hero .icon-btn{color:#101E33; background:#F6F5F1; border-radius:2px;}
+  .hero .icon-btn:hover{color:var(--accent);}
   .portrait{width:225px; max-height:300px; display:flex; align-items:center;}
   .portrait img{max-height:300px; width:auto; max-width:100%; object-fit:contain; margin:0 auto;}
   .callsign{display:inline-block; font-size:0.75rem; color:var(--steel); border:1px solid var(--line); padding:4px 10px; border-radius:2px; margin-bottom:16px;}
