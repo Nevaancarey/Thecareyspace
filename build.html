@@ -34,32 +34,37 @@
     <div class="orbit-wrap">
       <div class="orbit-inner">
         <svg viewBox="0 0 1000 480" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <path d="M70,90 Q200,10 330,60 Q480,120 620,160 Q760,200 860,320 Q750,430 560,430"
-                fill="none" stroke="#D8D3C7" stroke-width="2"/>
-          <circle cx="70" cy="90" r="5" fill="#C97D2C" opacity="0.5"/>
-          <circle cx="330" cy="60" r="6" fill="#C97D2C" opacity="0.65"/>
-          <circle cx="620" cy="160" r="7" fill="#C97D2C" opacity="0.8"/>
-          <circle cx="860" cy="320" r="8" fill="#C97D2C" opacity="0.92"/>
-          <circle cx="560" cy="430" r="10" fill="#C97D2C" opacity="1"/>
+          <ellipse cx="500" cy="240" rx="430" ry="190" fill="none" stroke="#D8D3C7" stroke-width="2"/>
+
+          <circle cx="500" cy="240" r="46" fill="#C97D2C" opacity="0.12"/>
+          <circle cx="500" cy="240" r="34" fill="#C97D2C" opacity="0.22"/>
+          <circle cx="500" cy="240" r="22" fill="#E0A458"/>
+          <circle cx="500" cy="240" r="15" fill="#F4C77A"/>
+
+          <circle cx="95.9" cy="175" r="5" fill="#C97D2C" opacity="0.5"/>
+          <circle cx="253.4" cy="84.4" r="6" fill="#C97D2C" opacity="0.65"/>
+          <circle cx="500" cy="50" r="7" fill="#C97D2C" opacity="0.8"/>
+          <circle cx="746.6" cy="84.4" r="8" fill="#C97D2C" opacity="0.92"/>
+          <circle cx="904.1" cy="175" r="10" fill="#C97D2C" opacity="1"/>
         </svg>
 
-        <a href="#" class="orbit-label" data-idx="0" style="left:7%; top:18.75%; font-size:0.72rem;">
+        <a href="#" class="orbit-label" data-idx="0" style="left:9.59%; top:36.46%; font-size:0.72rem;">
           <span class="o-year mono">AUG 2023 - NOV 2023</span>
           <span class="o-title">Quadcopter using Arduino</span>
         </a>
-        <a href="#" class="orbit-label" data-idx="1" style="left:33%; top:12.5%; font-size:0.78rem;">
+        <a href="#" class="orbit-label" data-idx="1" style="left:25.34%; top:17.58%; font-size:0.78rem;">
           <span class="o-year mono">JUN 2024 - NOV 2024</span>
           <span class="o-title">"Slow Fly" RC Plane</span>
         </a>
-        <a href="#" class="orbit-label" data-idx="2" style="left:62%; top:33%; font-size:0.85rem;">
+        <a href="#" class="orbit-label" data-idx="2" style="left:50%; top:10.42%; font-size:0.85rem;">
           <span class="o-year mono">NOV 2024 - JAN 2025</span>
           <span class="o-title">FPV Quadcopter with Pixhawk</span>
         </a>
-        <a href="#" class="orbit-label" data-idx="3" style="left:86%; top:66.7%; font-size:0.92rem;">
+        <a href="#" class="orbit-label" data-idx="3" style="left:74.66%; top:17.58%; font-size:0.92rem;">
           <span class="o-year mono">OCT 2025 - JAN 2026</span>
           <span class="o-title">SonoStep</span>
         </a>
-        <a href="#" class="orbit-label" data-idx="4" style="left:56%; top:89.6%; font-size:1rem;">
+        <a href="#" class="orbit-label" data-idx="4" style="left:90.41%; top:36.46%; font-size:1rem;">
           <span class="o-year mono">APR 2026</span>
           <span class="o-title">Build Guild - Micro Drone</span>
         </a>
@@ -116,6 +121,7 @@
         '<p>' + p.desc + '</p>';
       labels.forEach(function(l){ l.classList.remove('orbit-active'); });
       label.classList.add('orbit-active');
+      detail.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
 })();
