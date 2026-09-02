@@ -129,7 +129,7 @@
   .orbit-inner{position:relative; width:100%; max-width:1000px; aspect-ratio:1000/480; max-height:100%; margin:0 auto;}
   .orbit-inner svg{width:100%; height:100%; display:block;}
   .orbit-label{
-    position:absolute; transform:translate(-50%,-50%); text-decoration:none; text-align:center;
+    position:absolute; transform:translate(-50%, calc(-100% - 14px)); text-decoration:none; text-align:center;
     display:flex; flex-direction:column; gap:2px; max-width:170px; line-height:1.25;
   }
   .orbit-label .o-year{color:var(--accent); font-size:0.68em; display:block;}
