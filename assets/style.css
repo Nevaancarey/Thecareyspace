@@ -151,7 +151,7 @@
     background:var(--accent); border:3px solid var(--base); box-shadow:0 0 0 1px var(--line);
     transform:translate(-50%,-50%); z-index:2;
   }
-  .rt-item{position:absolute; width:calc(50% - 28px);}
+  .rt-item{position:absolute; width:calc(50% - 28px); transform:translateY(-50%);}
   .rt-right{left:calc(50% + 28px);}
   .rt-left{right:calc(50% + 28px); text-align:right;}
   .rt-item::before{content:''; position:absolute; top:50%; height:2px; background:var(--line); width:28px;}
