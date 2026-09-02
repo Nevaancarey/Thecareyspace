@@ -67,6 +67,8 @@
   section{padding:64px 0; border-bottom:1px solid var(--line);}
   section h2{font-size:1.6rem; margin-bottom:32px;}
   section .lead{color:var(--muted); max-width:64ch; margin-bottom:32px; font-size:0.96rem;}
+  .blink-blue{color:#2563EB; animation:blinkSlow 2.5s ease-in-out infinite;}
+  @keyframes blinkSlow{0%,100%{opacity:1;} 50%{opacity:0.3;}}
 
   .entry{display:grid; grid-template-columns:180px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line);}
   .entry:first-child{border-top:1px solid var(--line);}
@@ -125,6 +127,67 @@
   .category-block h3{font-size:1.2rem; margin-bottom:12px;}
   .category-empty{color:var(--muted); font-size:0.92rem; font-style:italic;}
 
+  .rocket-timeline{position:relative; max-width:820px; margin:0 auto; min-height:1250px;}
+  .rocket-path{
+    position:absolute; left:50%; top:20px; bottom:150px; width:6px;
+    background:linear-gradient(var(--accent), #F4C77A);
+    transform:translateX(-50%); border-radius:3px;
+  }
+  .rocket-fire-svg{position:absolute; left:50%; bottom:0; width:220px; height:66px; transform:translateX(-50%);}
+
+  .rocket-ship-pos{position:absolute; left:50%; top:88.8%; animation:rocketMove 16s linear infinite;}
+  .rocket-ship-icon{position:absolute; transform:translate(-50%,-50%) rotate(0deg); animation:rocketSpin 16s linear infinite;}
+
+  @keyframes rocketMove{
+    0%   {top:88.8%; left:50%;}
+    45%  {top:2%;    left:50%;}
+    50%  {top:-4%;   left:50%;}
+    60%  {top:8%;    left:88%;}
+    75%  {top:45%;   left:88%;}
+    88%  {top:75%;   left:65%;}
+    100% {top:88.8%; left:50%;}
+  }
+  @keyframes rocketSpin{
+    0%   {transform:translate(-50%,-50%) rotate(0deg);}
+    45%  {transform:translate(-50%,-50%) rotate(0deg);}
+    50%  {transform:translate(-50%,-50%) rotate(20deg);}
+    60%  {transform:translate(-50%,-50%) rotate(90deg);}
+    75%  {transform:translate(-50%,-50%) rotate(160deg);}
+    88%  {transform:translate(-50%,-50%) rotate(210deg);}
+    100% {transform:translate(-50%,-50%) rotate(360deg);}
+  }
+
+  .rt-item{position:absolute; width:calc(50% - 46px); display:flex; align-items:center; gap:14px;}
+  .rt-right{left:calc(50% + 46px);}
+  .rt-left{right:calc(50% + 46px); flex-direction:row-reverse; text-align:right;}
+  .rt-dot{
+    position:absolute; width:11px; height:11px; border-radius:50%;
+    background:var(--accent); border:3px solid var(--base); box-shadow:0 0 0 1px var(--line);
+    top:50%; transform:translateY(-50%);
+  }
+  .rt-right .rt-dot{left:-32px;}
+  .rt-left .rt-dot{right:-32px;}
+  .rt-content{background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:14px 16px;}
+  .rt-year{color:var(--accent); font-size:0.72rem; display:block; margin-bottom:4px;}
+  .rt-content p{color:var(--ink); font-size:0.88rem; margin:0;}
+
+  @media (max-width:760px){
+    .rocket-path{left:26px; transform:none;}
+    .rocket-fire-svg{left:26px; transform:none; width:160px;}
+    .rocket-ship-pos{left:26px;}
+    @keyframes rocketMove{
+      0%   {top:88.8%; left:26px;}
+      45%  {top:2%;    left:26px;}
+      50%  {top:-4%;   left:26px;}
+      60%  {top:8%;    left:80%;}
+      75%  {top:45%;   left:80%;}
+      88%  {top:75%;   left:50%;}
+      100% {top:88.8%; left:26px;}
+    }
+    .rt-item{width:calc(100% - 60px); left:60px !important; right:auto !important; flex-direction:row !important; text-align:left !important;}
+    .rt-dot{left:-46px !important; right:auto !important;}
+  }
+
   .orbit-wrap{height:60vh; min-height:340px; max-height:560px; display:flex; align-items:center; justify-content:center; margin:24px 0 8px;}
   .orbit-wrap-xl{height:auto; max-height:none; min-height:0;}
   .orbit-inner{position:relative; width:100%; max-width:1000px; aspect-ratio:1000/480; max-height:100%; margin:0 auto;}
@@ -141,7 +204,7 @@
   .orbit-label:hover .o-title, .orbit-label.orbit-active .o-title{color:var(--accent);}
   .project-detail{
     background:var(--panel); border:1px solid var(--line); border-radius:2px;
-    padding:24px 28px; max-width:700px; margin:0 auto;
+    padding:24px 28px; max-width:700px; margin:96px auto 0;
   }
   .project-detail p{color:var(--muted); font-size:0.94rem;}
   @media (max-width:700px){
