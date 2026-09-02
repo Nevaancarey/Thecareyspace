@@ -51,11 +51,11 @@
   .hero .role{margin-top:10px; color:var(--muted); font-size:1rem; max-width:56ch;}
   .hero-actions{margin-top:28px; display:flex; gap:18px; flex-wrap:wrap;}
   .icon-btn{
-    width:38px; height:38px; border:none; border-radius:2px;
+    width:30px; height:30px; border:none; border-radius:2px;
     display:flex; align-items:center; justify-content:center;
     color:var(--ink); text-decoration:none;
   }
-  .icon-btn svg{width:22px; height:22px;}
+  .icon-btn svg{width:18px; height:18px;}
   .icon-btn:hover{color:var(--accent);}
   .btn{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.88rem; padding:10px 20px; border-radius:2px; text-decoration:none; display:inline-block; border:1px solid var(--ink);}
   .btn-primary{background:var(--ink); color:var(--base);}
@@ -197,7 +197,7 @@
 
   @media (max-width:420px){
     nav a{font-size:0.62rem;}
-    .icon-btn{width:34px; height:34px;}
+    .icon-btn{width:28px; height:28px;}
     .hero h1{font-size:1.6rem;}
     .hero .role{font-size:0.9rem;}
   }
