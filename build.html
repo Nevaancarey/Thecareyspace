@@ -24,39 +24,102 @@
     </ul>
   </nav>
 </header>
-<section id="build">
-  <div class="wrap">
-    <h2>What I Build</h2>
-    <p class="lead">Hands-on hardware projects — UAVs, flight controllers, and embedded systems built, broken, and rebuilt along the way.</p>
-    <div class="grid">
-      <div class="card">
-        <span class="mono">APR 2026</span>
-        <h3>Build Guild — Micro Drone</h3>
-        <p>Built, calibrated, and flight-tested a micro drone prototype with stable autonomous altitude hold and orientation-independent control. 2nd place finish.</p>
+<section id="build" style="padding:0; border-bottom:1px solid var(--line);">
+  <div class="section-band">
+    <div class="wrap"><h2>What I Build</h2></div>
+  </div>
+  <div class="wrap" style="padding-top:48px; padding-bottom:64px;">
+    <p class="lead">Hands-on hardware projects - UAVs, flight controllers, and embedded systems built, broken, and rebuilt along the way. Oldest builds sit farthest back on the path; the newest sits closest.</p>
+
+    <div class="orbit-wrap">
+      <div class="orbit-inner">
+        <svg viewBox="0 0 1000 480" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <path d="M70,90 Q200,10 330,60 Q480,120 620,160 Q760,200 860,320 Q750,430 560,430"
+                fill="none" stroke="#D8D3C7" stroke-width="2"/>
+          <circle cx="70" cy="90" r="5" fill="#C97D2C" opacity="0.5"/>
+          <circle cx="330" cy="60" r="6" fill="#C97D2C" opacity="0.65"/>
+          <circle cx="620" cy="160" r="7" fill="#C97D2C" opacity="0.8"/>
+          <circle cx="860" cy="320" r="8" fill="#C97D2C" opacity="0.92"/>
+          <circle cx="560" cy="430" r="10" fill="#C97D2C" opacity="1"/>
+        </svg>
+
+        <a href="#" class="orbit-label" data-idx="0" style="left:7%; top:18.75%; font-size:0.72rem;">
+          <span class="o-year mono">AUG 2023 - NOV 2023</span>
+          <span class="o-title">Quadcopter using Arduino</span>
+        </a>
+        <a href="#" class="orbit-label" data-idx="1" style="left:33%; top:12.5%; font-size:0.78rem;">
+          <span class="o-year mono">JUN 2024 - NOV 2024</span>
+          <span class="o-title">"Slow Fly" RC Plane</span>
+        </a>
+        <a href="#" class="orbit-label" data-idx="2" style="left:62%; top:33%; font-size:0.85rem;">
+          <span class="o-year mono">NOV 2024 - JAN 2025</span>
+          <span class="o-title">FPV Quadcopter with Pixhawk</span>
+        </a>
+        <a href="#" class="orbit-label" data-idx="3" style="left:86%; top:66.7%; font-size:0.92rem;">
+          <span class="o-year mono">OCT 2025 - JAN 2026</span>
+          <span class="o-title">SonoStep</span>
+        </a>
+        <a href="#" class="orbit-label" data-idx="4" style="left:56%; top:89.6%; font-size:1rem;">
+          <span class="o-year mono">APR 2026</span>
+          <span class="o-title">Build Guild - Micro Drone</span>
+        </a>
       </div>
-      <div class="card">
-        <span class="mono">OCT 2025 – JAN 2026</span>
-        <h3>SonoStep: Assistive Navigation System</h3>
-        <p>Raspberry Pi–based smart cane with a camera-based vision system for obstacle detection, real-time audio feedback, and GPS point-to-point navigation.</p>
-      </div>
-      <div class="card">
-        <span class="mono">NOV 2024 – JAN 2025</span>
-        <h3>FPV Quadcopter with Pixhawk</h3>
-        <p>Resolved key performance issues in a prior UAV by transitioning from Arduino to Pixhawk 2.4.8, adding GPS, telemetry, and AV transmitters.</p>
-      </div>
-      <div class="card">
-        <span class="mono">JUN 2024 – NOV 2024</span>
-        <h3>"Slow Fly" RC Plane</h3>
-        <p>Developed and tested a low-speed RC plane using a 1000KV BLDC motor, 30A ESC, and SG90 servos — built for the S.P.A.R.K. Expo 2024.</p>
-      </div>
-      <div class="card">
-        <span class="mono">AUG 2023 – NOV 2023</span>
-        <h3>Quadcopter using Arduino Microcontroller</h3>
-        <p>My most challenging early build — Arduino isn't suited for stable flight control, but after months of iteration, produced a working flying quadcopter.</p>
-      </div>
+    </div>
+
+    <div id="project-detail" class="project-detail">
+      <p class="mono" style="color:var(--steel); font-size:0.85rem;">Click a project above to see details.</p>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var projects = [
+    {
+      year: 'AUG 2023 - NOV 2023',
+      title: 'Quadcopter using Arduino Microcontroller',
+      desc: "My most challenging early build - Arduino isn't suited for stable flight control, but after months of iteration, produced a working flying quadcopter."
+    },
+    {
+      year: 'JUN 2024 - NOV 2024',
+      title: '"Slow Fly" RC Plane',
+      desc: 'Developed and tested a low-speed RC plane using a 1000KV BLDC motor, 30A ESC, and SG90 servos - built for the S.P.A.R.K. Expo 2024.'
+    },
+    {
+      year: 'NOV 2024 - JAN 2025',
+      title: 'FPV Quadcopter with Pixhawk',
+      desc: 'Resolved key performance issues in a prior UAV by transitioning from Arduino to Pixhawk 2.4.8, adding GPS, telemetry, and AV transmitters.'
+    },
+    {
+      year: 'OCT 2025 - JAN 2026',
+      title: 'SonoStep: Assistive Navigation System',
+      desc: "Raspberry Pi-based smart cane with a camera-based vision system for obstacle detection, real-time audio feedback, and GPS point-to-point navigation."
+    },
+    {
+      year: 'APR 2026',
+      title: 'Build Guild - Micro Drone',
+      desc: 'Built, calibrated, and flight-tested a micro drone prototype with stable autonomous altitude hold and orientation-independent control. 2nd place finish.'
+    }
+  ];
+
+  var labels = document.querySelectorAll('.orbit-label');
+  var detail = document.getElementById('project-detail');
+
+  labels.forEach(function(label){
+    label.addEventListener('click', function(e){
+      e.preventDefault();
+      var idx = parseInt(label.getAttribute('data-idx'), 10);
+      var p = projects[idx];
+      detail.innerHTML =
+        '<div class="timeline-year mono">' + p.year + '</div>' +
+        '<h3 style="font-size:1.15rem; margin:6px 0 10px;">' + p.title + '</h3>' +
+        '<p>' + p.desc + '</p>';
+      labels.forEach(function(l){ l.classList.remove('orbit-active'); });
+      label.classList.add('orbit-active');
+    });
+  });
+})();
+</script>
 <footer>
   <div class="wrap mono">thecareyspace.xyz</div>
 </footer>
