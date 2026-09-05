@@ -73,26 +73,62 @@
 
 <section id="journey" style="border-bottom:1px solid var(--line);">
   <div class="wrap">
-    <h2>A Photo Journey</h2>
-    <div class="slider">
-      <div class="slider-track" id="slider-track">
-        <div class="slide"><img src="assets/journal-01.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-02.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-03.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-04.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-05.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-06.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-07.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-08.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-09.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-10.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-11.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-12.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-13.jpg" alt=""></div>
-        <div class="slide"><img src="assets/journal-14.jpg" alt=""></div>
+    <div class="dual-slider-grid">
+
+      <div class="dual-slider-col">
+        <h2>A Photo Journey</h2>
+        <div class="slider">
+          <div class="slider-track" id="slider-track-journey">
+            <div class="slide"><img src="assets/journal-01.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-02.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-03.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-04.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-05.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-06.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-07.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-08.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-09.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-10.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-11.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-12.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-13.jpg" alt=""></div>
+            <div class="slide"><img src="assets/journal-14.jpg" alt=""></div>
+          </div>
+          <button class="slider-btn prev" id="slider-prev-journey" aria-label="Previous photo">&#8249;</button>
+          <button class="slider-btn next" id="slider-next-journey" aria-label="Next photo">&#8250;</button>
+        </div>
       </div>
-      <button class="slider-btn prev" id="slider-prev" aria-label="Previous photo">&#8249;</button>
-      <button class="slider-btn next" id="slider-next" aria-label="Next photo">&#8250;</button>
+
+      <div class="dual-slider-col">
+        <h2>Certifications</h2>
+        <div class="slider">
+          <div class="slider-track" id="slider-track-cert">
+            <div class="slide">
+              <img src="assets/cert-01.jpg" alt="">
+              <div class="slide-caption">Space Science, Technology &amp; Applications</div>
+            </div>
+            <div class="slide">
+              <img src="assets/cert-02.jpg" alt="">
+              <div class="slide-caption">Mastering Generative AI</div>
+            </div>
+            <div class="slide">
+              <img src="assets/cert-03.jpg" alt="">
+              <div class="slide-caption">Quadcopter Drone &amp; UAV Workshop</div>
+            </div>
+            <div class="slide">
+              <img src="assets/cert-04.jpg" alt="">
+              <div class="slide-caption">IoT &amp; Electronics Course</div>
+            </div>
+            <div class="slide">
+              <img src="assets/cert-05.jpg" alt="">
+              <div class="slide-caption">Google AI Essentials</div>
+            </div>
+          </div>
+          <button class="slider-btn prev" id="slider-prev-cert" aria-label="Previous certificate">&#8249;</button>
+          <button class="slider-btn next" id="slider-next-cert" aria-label="Next certificate">&#8250;</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -122,8 +158,8 @@
 
 <script>
 
-(function(){
-  var track = document.getElementById('slider-track');
+function initSlider(trackId, prevId, nextId){
+  var track = document.getElementById(trackId);
   var slides = track ? track.children : [];
   var total = slides.length;
   if (total === 0) return;
@@ -149,17 +185,20 @@
     startAuto();
   }
 
-  document.getElementById('slider-next').addEventListener('click', function(){
+  document.getElementById(nextId).addEventListener('click', function(){
     next();
     restartAuto();
   });
-  document.getElementById('slider-prev').addEventListener('click', function(){
+  document.getElementById(prevId).addEventListener('click', function(){
     prev();
     restartAuto();
   });
 
   startAuto();
-})();
+}
+
+initSlider('slider-track-journey', 'slider-prev-journey', 'slider-next-journey');
+initSlider('slider-track-cert', 'slider-prev-cert', 'slider-next-cert');
 
 (function(){
   var songs = ['3Kxf2dHlDpQ', 'yP32JFCwxB0', 'cnRB2CgUpSw', 'pYZVof0j0DI', 'Kx7B-XvmFtE'];
