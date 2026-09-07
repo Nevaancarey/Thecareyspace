@@ -215,7 +215,7 @@
   }
 
   .dual-slider-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
-  .dual-slider-col h2{margin-bottom:20px;}
+  .dual-slider-col h2{margin-bottom:20px; text-align:center;}
 
   .slider{position:relative; overflow:hidden; border-radius:2px; border:1px solid var(--line); background:var(--panel);}
   .slider-track{display:flex; transition:transform 0.5s ease;}
