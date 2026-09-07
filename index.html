@@ -105,23 +105,18 @@
           <div class="slider-track" id="slider-track-cert">
             <div class="slide cert-slide">
               <img src="assets/cert-01.jpg" alt="">
-              <div class="slide-caption">Space Science, Technology &amp; Applications</div>
             </div>
             <div class="slide cert-slide">
               <img src="assets/cert-02.jpg" alt="">
-              <div class="slide-caption">Mastering Generative AI</div>
             </div>
             <div class="slide cert-slide">
               <img src="assets/cert-03.jpg" alt="">
-              <div class="slide-caption">Quadcopter Drone &amp; UAV Workshop</div>
             </div>
             <div class="slide cert-slide">
               <img src="assets/cert-04.jpg" alt="">
-              <div class="slide-caption">IoT &amp; Electronics Course</div>
             </div>
             <div class="slide cert-slide">
               <img src="assets/cert-05.jpg" alt="">
-              <div class="slide-caption">Google AI Essentials</div>
             </div>
           </div>
           <button class="slider-btn prev" id="slider-prev-cert" aria-label="Previous certificate">&#8249;</button>
@@ -162,9 +157,8 @@ function initSlider(trackId, prevId, nextId){
   var track = document.getElementById(trackId);
   var slides = track ? track.children : [];
   var total = slides.length;
-  if (total === 0) return;
+  if (total === 0) return null;
   var index = 0;
-  var intervalId;
 
   function goTo(i){
     index = (i + total) % total;
@@ -174,31 +168,49 @@ function initSlider(trackId, prevId, nextId){
   function next(){ goTo(index + 1); }
   function prev(){ goTo(index - 1); }
 
-  function startAuto(){
-    intervalId = setInterval(next, 4000);
-  }
-  function stopAuto(){
-    clearInterval(intervalId);
-  }
-  function restartAuto(){
-    stopAuto();
-    startAuto();
-  }
+  document.getElementById(nextId).addEventListener('click', next);
+  document.getElementById(prevId).addEventListener('click', prev);
 
-  document.getElementById(nextId).addEventListener('click', function(){
-    next();
-    restartAuto();
-  });
-  document.getElementById(prevId).addEventListener('click', function(){
-    prev();
-    restartAuto();
-  });
-
-  startAuto();
+  return { next: next };
 }
 
-initSlider('slider-track-journey', 'slider-prev-journey', 'slider-next-journey');
-initSlider('slider-track-cert', 'slider-prev-cert', 'slider-next-cert');
+var journeySlider = initSlider('slider-track-journey', 'slider-prev-journey', 'slider-next-journey');
+var certSlider = initSlider('slider-track-cert', 'slider-prev-cert', 'slider-next-cert');
+
+// Alternate turns every 5 seconds: journey advances, then 5s later cert advances, and so on.
+var turn = 0;
+setInterval(function(){
+  if (turn % 2 === 0) {
+    if (journeySlider) journeySlider.next();
+  } else {
+    if (certSlider) certSlider.next();
+  }
+  turn++;
+}, 5000);
+
+(function(){
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.slide img').forEach(function(img){
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function(){
+      var slider = img.closest('.slider');
+      var rect = slider.getBoundingClientRect();
+      var w = Math.min(rect.width * 2, window.innerWidth * 0.92);
+      var h = Math.min(rect.height * 2, window.innerHeight * 0.9);
+      lightboxImg.src = img.src;
+      lightboxImg.style.width = w + 'px';
+      lightboxImg.style.height = h + 'px';
+      lightboxImg.style.objectFit = img.closest('.cert-slide') ? 'contain' : 'cover';
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  lightbox.addEventListener('click', function(){
+    lightbox.style.display = 'none';
+  });
+})();
 
 (function(){
   var songs = ['3Kxf2dHlDpQ', 'yP32JFCwxB0', 'cnRB2CgUpSw', 'pYZVof0j0DI', 'Kx7B-XvmFtE'];
@@ -220,6 +232,10 @@ initSlider('slider-track-cert', 'slider-prev-cert', 'slider-next-cert');
 })();
 
 </script>
+<div id="lightbox" class="lightbox" style="display:none;">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <div id="drone-cursor" aria-hidden="true">
   <svg width="48" height="48" viewBox="0 0 32 32">
     <g stroke-width="1.8" stroke-linecap="round" fill="none">
