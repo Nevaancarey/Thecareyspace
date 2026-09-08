@@ -1,6 +1,3 @@
-// CHANGE YOUR PASSWORD HERE — just edit the text between the quotes below,
-// then re-upload this file to GitHub to update it.
-
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
