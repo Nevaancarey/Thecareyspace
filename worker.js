@@ -19,7 +19,7 @@ export default {
       if (attempt === expected && expected.length > 0) {
         const headers = new Headers({
           'Location': '/',
-          'Set-Cookie': 'carey_auth=ok; Path=/; HttpOnly; Secure; Max-Age=86400; SameSite=Lax'
+          'Set-Cookie': 'carey_auth=ok; Path=/; HttpOnly; Secure; SameSite=Lax'
         });
         return new Response(null, { status: 302, headers });
       }
@@ -81,4 +81,4 @@ function loginPage(wrongPassword) {
 </html>`;
 }
 
-const SITE_PASSWORD = "2025";
+const SITE_PASSWORD = "2026";
