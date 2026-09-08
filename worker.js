@@ -1,6 +1,5 @@
 // CHANGE YOUR PASSWORD HERE — just edit the text between the quotes below,
 // then re-upload this file to GitHub to update it.
-const SITE_PASSWORD = "2026";
 
 export default {
   async fetch(request, env) {
@@ -82,5 +81,7 @@ function loginPage(wrongPassword) {
     </div>
   </div>
 </body>
+const SITE_PASSWORD = "2026";
+
 </html>`;
 }
