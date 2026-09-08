@@ -81,4 +81,4 @@ function loginPage(wrongPassword) {
 </html>`;
 }
 
-const SITE_PASSWORD = "Time";
+const SITE_PASSWORD = "2025";
