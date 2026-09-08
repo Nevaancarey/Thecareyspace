@@ -8,6 +8,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+  .card{transition:border-color 0.3s ease, box-shadow 0.3s ease;}
+  .card-active{border-color:var(--accent); box-shadow:0 0 0 2px var(--accent);}
+</style>
 </head>
 <body>
 
@@ -173,56 +177,94 @@
       </a>
     </div>
 
-    <div id="project-detail" class="project-detail" style="display:none;"></div>
+    <div class="wrap" style="padding:0; margin-top:56px;">
+      <h3 style="font-size:1.1rem; margin-bottom:20px;">All Projects &amp; Explorations</h3>
+      <div class="grid" id="all-items-grid">
+
+        <div class="card" id="box-project-4">
+          <span class="mono">APR 2026</span>
+          <h3>Build Guild - Micro Drone</h3>
+          <p>Built, calibrated, and flight-tested a micro drone prototype with stable autonomous altitude hold and orientation-independent control. 2nd place finish.</p>
+        </div>
+
+        <div class="card" id="box-exploration-4">
+          <span class="mono">CIPQ - NOV 2025 - ONGOING</span>
+          <h3>Solar Integration in Mini Quadcopters</h3>
+          <p>Independent research into the impact of solar integration on quadcopter flight time and power efficiency under measured wind, temperature, and humidity conditions - culminating in a 5,000-word report.</p>
+        </div>
+
+        <div class="card" id="box-project-3">
+          <span class="mono">OCT 2025 - JAN 2026</span>
+          <h3>SonoStep: Assistive Navigation System</h3>
+          <p>Raspberry Pi-based smart cane with a camera-based vision system for obstacle detection, real-time audio feedback, and GPS point-to-point navigation.</p>
+        </div>
+
+        <div class="card" id="box-exploration-0">
+          <span class="mono">JUL 2025 - AUG 2025</span>
+          <h3>Space Sweepers</h3>
+          <p>Comparative research on the top three Active Debris Removal strategies built so far, focusing on operational viability and long-term sustainability.</p>
+        </div>
+
+        <div class="card" id="box-exploration-1">
+          <span class="mono">JUN 2025 - JUL 2025</span>
+          <h3>Astrophysics Workshop &amp; Training</h3>
+          <p>30-day workshop covering observational techniques through to stellar astrophysics, gravitational waves, and high-energy physics - assessment cleared with flying colors.</p>
+        </div>
+
+        <div class="card" id="box-exploration-2">
+          <span class="mono">MAY 2025 - JUN 2025</span>
+          <h3>S.H.A.N.I. - Titan Sample Collector</h3>
+          <p>Conceptual design for a Saturnian Hydrocarbon Analysis and Navigation Instrument, developed with an international team of 10 for the Sinlap crater on Titan.</p>
+        </div>
+
+        <div class="card" id="box-exploration-3">
+          <span class="mono">MAY 2025</span>
+          <h3>Robotics in Space - Summer Camp @ T-Works</h3>
+          <p>Designed a model CubeSat and developed multiple embedded systems projects using NodeMCU and Arduino.</p>
+        </div>
+
+        <div class="card" id="box-project-2">
+          <span class="mono">NOV 2024 - JAN 2025</span>
+          <h3>FPV Quadcopter with Pixhawk</h3>
+          <p>Resolved key performance issues in a prior UAV by transitioning from Arduino to Pixhawk 2.4.8, adding GPS, telemetry, and AV transmitters.</p>
+        </div>
+
+        <div class="card" id="box-project-1">
+          <span class="mono">JUN 2024 - NOV 2024</span>
+          <h3>"Slow Fly" RC Plane</h3>
+          <p>Developed and tested a low-speed RC plane using a 1000KV BLDC motor, 30A ESC, and SG90 servos - built for the S.P.A.R.K. Expo 2024.</p>
+        </div>
+
+        <div class="card" id="box-project-0">
+          <span class="mono">AUG 2023 - NOV 2023</span>
+          <h3>Quadcopter using Arduino Microcontroller</h3>
+          <p>My most challenging early build - Arduino isn't suited for stable flight control, but after months of iteration, produced a working flying quadcopter.</p>
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
 (function(){
-  var data = {
-    project: [
-      { year: 'AUG 2023 - NOV 2023', title: 'Quadcopter using Arduino Microcontroller',
-        desc: "My most challenging early build - Arduino isn't suited for stable flight control, but after months of iteration, produced a working flying quadcopter." },
-      { year: 'JUN 2024 - NOV 2024', title: '"Slow Fly" RC Plane',
-        desc: 'Developed and tested a low-speed RC plane using a 1000KV BLDC motor, 30A ESC, and SG90 servos - built for the S.P.A.R.K. Expo 2024.' },
-      { year: 'NOV 2024 - JAN 2025', title: 'FPV Quadcopter with Pixhawk',
-        desc: 'Resolved key performance issues in a prior UAV by transitioning from Arduino to Pixhawk 2.4.8, adding GPS, telemetry, and AV transmitters.' },
-      { year: 'OCT 2025 - JAN 2026', title: 'SonoStep: Assistive Navigation System',
-        desc: "Raspberry Pi-based smart cane with a camera-based vision system for obstacle detection, real-time audio feedback, and GPS point-to-point navigation." },
-      { year: 'APR 2026', title: 'Build Guild - Micro Drone',
-        desc: 'Built, calibrated, and flight-tested a micro drone prototype with stable autonomous altitude hold and orientation-independent control. 2nd place finish.' }
-    ],
-    exploration: [
-      { year: 'JUL 2025 - AUG 2025', title: 'Space Sweepers',
-        desc: 'Comparative research on the top three Active Debris Removal strategies built so far, focusing on operational viability and long-term sustainability.' },
-      { year: 'JUN 2025 - JUL 2025', title: 'Astrophysics Workshop & Training',
-        desc: '30-day workshop covering observational techniques through to stellar astrophysics, gravitational waves, and high-energy physics - assessment cleared with flying colors.' },
-      { year: 'MAY 2025 - JUN 2025', title: 'S.H.A.N.I. - Titan Sample Collector',
-        desc: 'Conceptual design for a Saturnian Hydrocarbon Analysis and Navigation Instrument, developed with an international team of 10 for the Sinlap crater on Titan.' },
-      { year: 'MAY 2025', title: 'Robotics in Space - Summer Camp @ T-Works',
-        desc: 'Designed a model CubeSat and developed multiple embedded systems projects using NodeMCU and Arduino.' },
-      { year: 'CIPQ - NOV 2025 - ONGOING', title: 'Solar Integration in Mini Quadcopters',
-        desc: 'Independent research into the impact of solar integration on quadcopter flight time and power efficiency under measured wind, temperature, and humidity conditions - culminating in a 5,000-word report.' }
-    ]
-  };
-
   var labels = document.querySelectorAll('.orbit-label');
-  var detail = document.getElementById('project-detail');
 
   labels.forEach(function(label){
     label.addEventListener('click', function(e){
       e.preventDefault();
       var group = label.getAttribute('data-group');
-      var idx = parseInt(label.getAttribute('data-idx'), 10);
-      var p = data[group][idx];
-      detail.innerHTML =
-        '<div class="timeline-year mono">' + p.year + '</div>' +
-        '<h3 style="font-size:1.15rem; margin:6px 0 10px;">' + p.title + '</h3>' +
-        '<p>' + p.desc + '</p>';
-      detail.style.display = 'block';
+      var idx = label.getAttribute('data-idx');
+      var box = document.getElementById('box-' + group + '-' + idx);
+      if (!box) return;
+
+      document.querySelectorAll('.card').forEach(function(c){ c.classList.remove('card-active'); });
+      box.classList.add('card-active');
+
       labels.forEach(function(l){ l.classList.remove('orbit-active'); });
       label.classList.add('orbit-active');
-      detail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
 })();
