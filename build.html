@@ -12,11 +12,18 @@
   .card{transition:border-color 0.3s ease, box-shadow 0.3s ease;}
   .card-active{border-color:var(--accent); box-shadow:0 0 0 2px var(--accent);}
 
+  .mobile-scroll-hint{display:none;}
   @media (max-width:760px){
     .orbit-wrap-xl{display:block !important; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:12px;}
     .orbit-wrap-xl .orbit-inner{min-width:900px !important; max-width:none !important;}
     .orbit-mobile-list{display:none !important;}
     .orbit-label{max-width:210px !important; font-size:0.8rem !important; white-space:normal !important;}
+    .mobile-scroll-hint{
+      display:block; text-align:center; color:#2563EB; font-weight:700;
+      font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+      margin:8px 0 4px; animation:blinkSlow 2s ease-in-out infinite;
+    }
+    @keyframes blinkSlow{0%,100%{opacity:1;} 50%{opacity:0.3;}}
   }
 </style>
 </head>
@@ -40,6 +47,8 @@
   </div>
   <div class="wrap" style="padding-top:48px; padding-bottom:64px;">
     <p class="lead" style="max-width:none;">These are some of the interesting projects or research work I completed over the past few years. <span class="blink-blue">Click on any project to see more details.</span></p>
+
+    <div class="mobile-scroll-hint">&raquo;&raquo;&raquo; Scroll Right for Full Orbit &raquo;&raquo;&raquo;</div>
 
     <div class="orbit-wrap orbit-wrap-xl">
       <div class="orbit-inner">
