@@ -74,57 +74,28 @@
 
 <section id="journey" style="border-bottom:1px solid var(--line);">
   <div class="wrap">
-    <div class="dual-slider-grid">
-
-      <div class="dual-slider-col">
-        <h2>A Photo Journey</h2>
-        <div class="slider">
-          <div class="slider-track" id="slider-track-journey">
-            <div class="slide"><img src="assets/journal-01.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-02.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-03.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-04.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-05.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-06.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-07.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-08.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-09.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-10.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-11.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-12.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-13.jpg" alt=""></div>
-            <div class="slide"><img src="assets/journal-14.jpg" alt=""></div>
-          </div>
-          <button class="slider-btn prev" id="slider-prev-journey" aria-label="Previous photo">&#8249;</button>
-          <button class="slider-btn next" id="slider-next-journey" aria-label="Next photo">&#8250;</button>
+    <div class="single-slider-col">
+      <h2>A Photo Journey</h2>
+      <div class="slider">
+        <div class="slider-track" id="slider-track-journey">
+          <div class="slide"><img src="assets/journal-01.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-02.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-03.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-04.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-05.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-06.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-07.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-08.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-09.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-10.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-11.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-12.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-13.jpg" alt=""></div>
+          <div class="slide"><img src="assets/journal-14.jpg" alt=""></div>
         </div>
+        <button class="slider-btn prev" id="slider-prev-journey" aria-label="Previous photo">&#8249;</button>
+        <button class="slider-btn next" id="slider-next-journey" aria-label="Next photo">&#8250;</button>
       </div>
-
-      <div class="dual-slider-col">
-        <h2>Certifications</h2>
-        <div class="slider">
-          <div class="slider-track" id="slider-track-cert">
-            <div class="slide cert-slide">
-              <img src="assets/cert-01.jpg" alt="">
-            </div>
-            <div class="slide cert-slide">
-              <img src="assets/cert-02.jpg" alt="">
-            </div>
-            <div class="slide cert-slide">
-              <img src="assets/cert-03.jpg" alt="">
-            </div>
-            <div class="slide cert-slide">
-              <img src="assets/cert-04.jpg" alt="">
-            </div>
-            <div class="slide cert-slide">
-              <img src="assets/cert-05.jpg" alt="">
-            </div>
-          </div>
-          <button class="slider-btn prev" id="slider-prev-cert" aria-label="Previous certificate">&#8249;</button>
-          <button class="slider-btn next" id="slider-next-cert" aria-label="Next certificate">&#8250;</button>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -182,17 +153,10 @@ function initSlider(trackId, prevId, nextId){
 }
 
 var journeySlider = initSlider('slider-track-journey', 'slider-prev-journey', 'slider-next-journey');
-var certSlider = initSlider('slider-track-cert', 'slider-prev-cert', 'slider-next-cert');
 
-// Alternate turns every 5 seconds: journey advances, then 5s later cert advances, and so on.
-var turn = 0;
+// Auto-advance every 5 seconds.
 setInterval(function(){
-  if (turn % 2 === 0) {
-    if (journeySlider) journeySlider.next();
-  } else {
-    if (certSlider) certSlider.next();
-  }
-  turn++;
+  if (journeySlider) journeySlider.next();
 }, 5000);
 
 (function(){
