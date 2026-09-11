@@ -379,6 +379,11 @@
 <script>
 
 (function(){
+  var orbitScroll = document.querySelector('.orbit-wrap-xl');
+  if (orbitScroll) orbitScroll.scrollLeft = 0;
+})();
+
+(function(){
   var labels = document.querySelectorAll('.orbit-label');
 
   labels.forEach(function(label){
