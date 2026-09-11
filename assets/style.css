@@ -249,9 +249,9 @@
   @media (max-width:900px){
     .marquee-slide{width:280px;}
   }
-  @media (max-width:500px){
-    .marquee-slide{width:200px;}
+  @media (max-width:760px){
     .marquee-track{gap:8px;}
+    .marquee-slide{width:calc((100vw - 16px) / 3);}
   }
 
   .slider{position:relative; overflow:hidden; border-radius:2px; border:1px solid var(--line); background:var(--panel);}
