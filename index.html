@@ -371,7 +371,10 @@
 
 <div id="lightbox" class="lightbox" style="display:none;">
   <button class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#8249;</button>
-  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
   <button class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next photo">&#8250;</button>
   <div class="lightbox-dots" id="lightbox-dots"></div>
 </div>
@@ -412,6 +415,7 @@
   var lightboxPrev = document.getElementById('lightbox-prev');
   var lightboxNext = document.getElementById('lightbox-next');
   var lightboxDots = document.getElementById('lightbox-dots');
+  var lightboxCaption = document.getElementById('lightbox-caption');
   if (!track || !lightbox) return;
 
   var allImgs = Array.prototype.slice.call(track.querySelectorAll('img'));
@@ -450,6 +454,11 @@
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', function(e){
       e.stopPropagation();
+      lightboxPrev.style.display = 'flex';
+      lightboxNext.style.display = 'flex';
+      lightboxDots.style.display = 'flex';
+      lightboxCaption.style.display = 'none';
+      lightboxCaption.textContent = '';
       show(parseInt(img.getAttribute('data-idx'), 10));
       lightbox.style.display = 'flex';
     });
@@ -467,6 +476,35 @@
     if (e.key === 'ArrowLeft') show(current - 1);
     else if (e.key === 'ArrowRight') show(current + 1);
     else if (e.key === 'Escape') lightbox.style.display = 'none';
+  });
+})();
+
+(function(){
+  var portraitImg = document.querySelector('.portrait img');
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxPrev = document.getElementById('lightbox-prev');
+  var lightboxNext = document.getElementById('lightbox-next');
+  var lightboxDots = document.getElementById('lightbox-dots');
+  var lightboxCaption = document.getElementById('lightbox-caption');
+  if (!portraitImg || !lightbox) return;
+
+  portraitImg.style.cursor = 'zoom-in';
+  portraitImg.addEventListener('click', function(e){
+    e.stopPropagation();
+    var rect = portraitImg.getBoundingClientRect();
+    var w = Math.min(rect.width * 2.4, window.innerWidth * 0.92);
+    var h = Math.min(rect.height * 2.4, window.innerHeight * 0.8);
+    lightboxImg.src = portraitImg.src;
+    lightboxImg.style.width = w + 'px';
+    lightboxImg.style.height = h + 'px';
+    lightboxImg.style.objectFit = 'contain';
+    lightboxPrev.style.display = 'none';
+    lightboxNext.style.display = 'none';
+    lightboxDots.style.display = 'none';
+    lightboxCaption.textContent = 'IIT KGP - Standing Where Legend Stayed';
+    lightboxCaption.style.display = 'block';
+    lightbox.style.display = 'flex';
   });
 })();
 
