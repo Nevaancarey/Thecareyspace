@@ -74,28 +74,39 @@
 
 <section id="journey" style="border-bottom:1px solid var(--line);">
   <div class="wrap">
-    <div class="single-slider-col">
-      <h2>A Photo Journey</h2>
-      <div class="slider">
-        <div class="slider-track" id="slider-track-journey">
-          <div class="slide"><img src="assets/journal-01.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-02.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-03.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-04.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-05.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-06.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-07.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-08.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-09.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-10.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-11.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-12.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-13.jpg" alt=""></div>
-          <div class="slide"><img src="assets/journal-14.jpg" alt=""></div>
-        </div>
-        <button class="slider-btn prev" id="slider-prev-journey" aria-label="Previous photo">&#8249;</button>
-        <button class="slider-btn next" id="slider-next-journey" aria-label="Next photo">&#8250;</button>
-      </div>
+    <h2 style="text-align:center; margin-bottom:24px;">A Photo Journey</h2>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee-track-journey">
+      <div class="marquee-slide"><img src="assets/journal-01.jpg" alt="" data-idx="0"></div>
+      <div class="marquee-slide"><img src="assets/journal-02.jpg" alt="" data-idx="1"></div>
+      <div class="marquee-slide"><img src="assets/journal-03.jpg" alt="" data-idx="2"></div>
+      <div class="marquee-slide"><img src="assets/journal-04.jpg" alt="" data-idx="3"></div>
+      <div class="marquee-slide"><img src="assets/journal-05.jpg" alt="" data-idx="4"></div>
+      <div class="marquee-slide"><img src="assets/journal-06.jpg" alt="" data-idx="5"></div>
+      <div class="marquee-slide"><img src="assets/journal-07.jpg" alt="" data-idx="6"></div>
+      <div class="marquee-slide"><img src="assets/journal-08.jpg" alt="" data-idx="7"></div>
+      <div class="marquee-slide"><img src="assets/journal-09.jpg" alt="" data-idx="8"></div>
+      <div class="marquee-slide"><img src="assets/journal-10.jpg" alt="" data-idx="9"></div>
+      <div class="marquee-slide"><img src="assets/journal-11.jpg" alt="" data-idx="10"></div>
+      <div class="marquee-slide"><img src="assets/journal-12.jpg" alt="" data-idx="11"></div>
+      <div class="marquee-slide"><img src="assets/journal-13.jpg" alt="" data-idx="12"></div>
+      <div class="marquee-slide"><img src="assets/journal-14.jpg" alt="" data-idx="13"></div>
+      <!-- duplicate set for a seamless loop -->
+      <div class="marquee-slide"><img src="assets/journal-01.jpg" alt="" data-idx="0"></div>
+      <div class="marquee-slide"><img src="assets/journal-02.jpg" alt="" data-idx="1"></div>
+      <div class="marquee-slide"><img src="assets/journal-03.jpg" alt="" data-idx="2"></div>
+      <div class="marquee-slide"><img src="assets/journal-04.jpg" alt="" data-idx="3"></div>
+      <div class="marquee-slide"><img src="assets/journal-05.jpg" alt="" data-idx="4"></div>
+      <div class="marquee-slide"><img src="assets/journal-06.jpg" alt="" data-idx="5"></div>
+      <div class="marquee-slide"><img src="assets/journal-07.jpg" alt="" data-idx="6"></div>
+      <div class="marquee-slide"><img src="assets/journal-08.jpg" alt="" data-idx="7"></div>
+      <div class="marquee-slide"><img src="assets/journal-09.jpg" alt="" data-idx="8"></div>
+      <div class="marquee-slide"><img src="assets/journal-10.jpg" alt="" data-idx="9"></div>
+      <div class="marquee-slide"><img src="assets/journal-11.jpg" alt="" data-idx="10"></div>
+      <div class="marquee-slide"><img src="assets/journal-12.jpg" alt="" data-idx="11"></div>
+      <div class="marquee-slide"><img src="assets/journal-13.jpg" alt="" data-idx="12"></div>
+      <div class="marquee-slide"><img src="assets/journal-14.jpg" alt="" data-idx="13"></div>
     </div>
   </div>
 </section>
@@ -131,43 +142,18 @@
 
 <script>
 
-function initSlider(trackId, prevId, nextId){
-  var track = document.getElementById(trackId);
-  var slides = track ? track.children : [];
-  var total = slides.length;
-  if (total === 0) return null;
-  var index = 0;
-
-  function goTo(i){
-    index = (i + total) % total;
-    track.style.transform = 'translateX(-' + (index * 100) + '%)';
-  }
-
-  function next(){ goTo(index + 1); }
-  function prev(){ goTo(index - 1); }
-
-  document.getElementById(nextId).addEventListener('click', next);
-  document.getElementById(prevId).addEventListener('click', prev);
-
-  return { next: next };
-}
-
-var journeySlider = initSlider('slider-track-journey', 'slider-prev-journey', 'slider-next-journey');
-
-// Auto-advance every 5 seconds.
-setInterval(function(){
-  if (journeySlider) journeySlider.next();
-}, 5000);
-
 (function(){
+  var track = document.getElementById('marquee-track-journey');
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightbox-img');
   var lightboxPrev = document.getElementById('lightbox-prev');
   var lightboxNext = document.getElementById('lightbox-next');
   var lightboxDots = document.getElementById('lightbox-dots');
+  if (!track || !lightbox) return;
 
-  var gallery = [];
-  var galleryIsCert = false;
+  var allImgs = Array.prototype.slice.call(track.querySelectorAll('img'));
+  var total = allImgs.length / 2;
+  var gallery = allImgs.slice(0, total);
   var current = 0;
 
   function renderDots(){
@@ -187,34 +173,22 @@ setInterval(function(){
   function show(i){
     current = (i + gallery.length) % gallery.length;
     var img = gallery[current];
-    var slider = img.closest('.slider');
-    var rect = slider.getBoundingClientRect();
-    var w = Math.min(rect.width * 2, window.innerWidth * 0.92);
-    var h = Math.min(rect.height * 2, window.innerHeight * 0.9);
+    var rect = img.getBoundingClientRect();
+    var w = Math.min(rect.width * 2.4, window.innerWidth * 0.92);
+    var h = Math.min(rect.height * 2.4, window.innerHeight * 0.9);
     lightboxImg.src = img.src;
     lightboxImg.style.width = w + 'px';
     lightboxImg.style.height = h + 'px';
-    lightboxImg.style.objectFit = galleryIsCert ? 'contain' : 'cover';
+    lightboxImg.style.objectFit = 'cover';
     renderDots();
   }
 
-  function open(img){
-    var slider = img.closest('.slider');
-    galleryIsCert = !!img.closest('.cert-slide');
-    gallery = Array.prototype.slice.call(slider.querySelectorAll('.slide img'));
-    var multi = gallery.length > 1;
-    lightboxPrev.style.display = multi ? 'flex' : 'none';
-    lightboxNext.style.display = multi ? 'flex' : 'none';
-    lightboxDots.style.display = multi ? 'flex' : 'none';
-    show(gallery.indexOf(img));
-    lightbox.style.display = 'flex';
-  }
-
-  document.querySelectorAll('.slide img').forEach(function(img){
+  allImgs.forEach(function(img){
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', function(e){
       e.stopPropagation();
-      open(img);
+      show(parseInt(img.getAttribute('data-idx'), 10));
+      lightbox.style.display = 'flex';
     });
   });
 
