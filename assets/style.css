@@ -355,8 +355,8 @@
     .entry{grid-template-columns:1fr; gap:8px;}
     .awards{columns:1;}
     .reach-row{grid-template-columns:1fr; justify-content:center; text-align:center;}
-    .reach-info{text-align:center;}
-    .song-block{align-items:center; text-align:center; margin:0 auto;}
+    .reach-info{text-align:center; order:2;}
+    .song-block{align-items:center; text-align:center; margin:0 auto; order:1;}
     .song-thumb{width:min(220px, 80vw);}
     .reach-links{justify-content:center;}
   }
