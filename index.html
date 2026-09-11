@@ -152,7 +152,10 @@
 </footer>
 
 <div id="lightbox" class="lightbox" style="display:none;">
+  <button class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#8249;</button>
   <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next photo">&#8250;</button>
+  <div class="lightbox-dots" id="lightbox-dots"></div>
 </div>
 
 <script>
@@ -195,24 +198,74 @@ setInterval(function(){
 (function(){
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxPrev = document.getElementById('lightbox-prev');
+  var lightboxNext = document.getElementById('lightbox-next');
+  var lightboxDots = document.getElementById('lightbox-dots');
+
+  var gallery = [];
+  var galleryIsCert = false;
+  var current = 0;
+
+  function renderDots(){
+    lightboxDots.innerHTML = '';
+    gallery.forEach(function(_, i){
+      var dot = document.createElement('span');
+      dot.className = 'lightbox-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+      dot.addEventListener('click', function(e){
+        e.stopPropagation();
+        show(i);
+      });
+      lightboxDots.appendChild(dot);
+    });
+  }
+
+  function show(i){
+    current = (i + gallery.length) % gallery.length;
+    var img = gallery[current];
+    var slider = img.closest('.slider');
+    var rect = slider.getBoundingClientRect();
+    var w = Math.min(rect.width * 2, window.innerWidth * 0.92);
+    var h = Math.min(rect.height * 2, window.innerHeight * 0.9);
+    lightboxImg.src = img.src;
+    lightboxImg.style.width = w + 'px';
+    lightboxImg.style.height = h + 'px';
+    lightboxImg.style.objectFit = galleryIsCert ? 'contain' : 'cover';
+    renderDots();
+  }
+
+  function open(img){
+    var slider = img.closest('.slider');
+    galleryIsCert = !!img.closest('.cert-slide');
+    gallery = Array.prototype.slice.call(slider.querySelectorAll('.slide img'));
+    var multi = gallery.length > 1;
+    lightboxPrev.style.display = multi ? 'flex' : 'none';
+    lightboxNext.style.display = multi ? 'flex' : 'none';
+    lightboxDots.style.display = multi ? 'flex' : 'none';
+    show(gallery.indexOf(img));
+    lightbox.style.display = 'flex';
+  }
 
   document.querySelectorAll('.slide img').forEach(function(img){
     img.style.cursor = 'zoom-in';
-    img.addEventListener('click', function(){
-      var slider = img.closest('.slider');
-      var rect = slider.getBoundingClientRect();
-      var w = Math.min(rect.width * 2, window.innerWidth * 0.92);
-      var h = Math.min(rect.height * 2, window.innerHeight * 0.9);
-      lightboxImg.src = img.src;
-      lightboxImg.style.width = w + 'px';
-      lightboxImg.style.height = h + 'px';
-      lightboxImg.style.objectFit = img.closest('.cert-slide') ? 'contain' : 'cover';
-      lightbox.style.display = 'flex';
+    img.addEventListener('click', function(e){
+      e.stopPropagation();
+      open(img);
     });
   });
 
+  lightboxPrev.addEventListener('click', function(e){ e.stopPropagation(); show(current - 1); });
+  lightboxNext.addEventListener('click', function(e){ e.stopPropagation(); show(current + 1); });
+
   lightbox.addEventListener('click', function(){
     lightbox.style.display = 'none';
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (lightbox.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft') show(current - 1);
+    else if (e.key === 'ArrowRight') show(current + 1);
+    else if (e.key === 'Escape') lightbox.style.display = 'none';
   });
 })();
 
