@@ -283,6 +283,12 @@
   .lightbox img{
     box-shadow:0 20px 60px rgba(0,0,0,0.4); border-radius:2px; background:#fff;
   }
+  .lightbox-content{display:flex; flex-direction:column; align-items:center; gap:14px;}
+  .lightbox-caption{
+    display:none; color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:600;
+    font-size:1rem; text-align:center; letter-spacing:0.02em;
+    background:rgba(16,30,51,0.6); padding:8px 20px; border-radius:2px;
+  }
 
   .lightbox-btn{
     position:fixed; top:50%; transform:translateY(-50%);
