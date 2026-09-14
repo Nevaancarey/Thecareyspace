@@ -84,32 +84,23 @@
   .card h3{font-size:1.1rem; margin-bottom:8px;}
   .card p{color:var(--muted); font-size:0.92rem;}
 
-  #all-items-grid.grid-projects{gap:40px 30px;}
+  #all-items-grid.grid-projects{gap:36px 30px;}
   #all-items-grid .card{
     position:relative;
-    background:
-      radial-gradient(circle at 22% 28%, rgba(110,80,30,0.10), transparent 40%),
-      radial-gradient(circle at 78% 68%, rgba(110,80,30,0.12), transparent 45%),
-      radial-gradient(circle at 50% 90%, rgba(110,80,30,0.08), transparent 40%),
-      linear-gradient(160deg, #F1E3BA 0%, #E6D19E 55%, #DCC28C 100%);
-    border:none;
+    background:#000; /* fallback, fully covered by border-image fill */
+    border-style:solid;
+    border-width:52px 18px;
+    border-image-source:url('scroll-bg.png');
+    border-image-slice:95 34 95 34 fill;
+    border-image-width:52px 18px;
+    border-image-repeat:stretch;
     border-radius:0;
-    padding:34px 28px 30px;
-    box-shadow:0 10px 22px rgba(60,40,10,0.22), inset 0 0 34px rgba(90,60,20,0.12);
+    padding:14px 10px 18px;
+    box-shadow:0 10px 20px rgba(60,40,10,0.28);
     transition:transform 0.25s ease, box-shadow 0.25s ease;
   }
-  #all-items-grid .card::before,
-  #all-items-grid .card::after{
-    content:'';
-    position:absolute; left:-8px; right:-8px; height:18px;
-    background:linear-gradient(180deg, #7A5A2E 0%, #C4A05F 22%, #EDD9A5 50%, #C4A05F 78%, #7A5A2E 100%);
-    border-radius:10px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.35);
-  }
-  #all-items-grid .card::before{top:-10px;}
-  #all-items-grid .card::after{bottom:-10px;}
-  #all-items-grid .card:hover{transform:translateY(-3px); box-shadow:0 16px 28px rgba(60,40,10,0.3);}
-  #all-items-grid .card.card-active{box-shadow:0 0 0 2px var(--accent), 0 10px 22px rgba(60,40,10,0.22);}
+  #all-items-grid .card:hover{transform:translateY(-3px); box-shadow:0 16px 28px rgba(60,40,10,0.36);}
+  #all-items-grid .card.card-active{box-shadow:0 0 0 2px var(--accent), 0 10px 20px rgba(60,40,10,0.28);}
 
   #all-items-grid .card .mono{
     color:#6B4A1F; font-weight:600; letter-spacing:0.04em;
