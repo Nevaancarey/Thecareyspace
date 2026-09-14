@@ -152,7 +152,8 @@
 
   .card-cost-table{width:100%; border-collapse:collapse; margin-bottom:14px; font-size:0.85rem;}
   .card-cost-table th, .card-cost-table td{border:1px solid var(--line); padding:6px 10px; text-align:left; color:var(--muted);}
-  .card-cost-table th{background:var(--base); color:var(--ink); font-weight:600;}
+  .card-cost-table th{background:var(--base); color:var(--ink); font-weight:600; text-align:center;}
+  .card-cost-table td:not(:first-child){text-align:center;}
   .card-cost-table .cost-total-row td{font-weight:700; color:var(--ink); background:var(--base);}
 
   .awards{columns:2; gap:32px;}
