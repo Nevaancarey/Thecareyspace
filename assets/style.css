@@ -121,6 +121,19 @@
   @media (max-width:600px){
     .card-inline-video{float:none; width:100%; max-width:100%; margin:0 0 14px;}
   }
+
+  .card-float-stack{float:right; width:280px; max-width:45%; margin:0 0 14px 18px; display:flex; flex-direction:column; gap:10px;}
+  .card-float-stack .card-inline-video{float:none; width:100%; max-width:100%; margin:0;}
+  .card-inline-img{width:100%; display:block; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15);}
+
+  .card-side-by-side{display:flex; gap:20px; margin-top:20px;}
+  .card-side-by-side img{flex:1 1 50%; width:50%; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15);}
+
+  @media (max-width:600px){
+    .card-float-stack{float:none; width:100%; max-width:100%; margin:0 0 14px;}
+    .card-side-by-side{flex-direction:column;}
+    .card-side-by-side img{width:100%;}
+  }
   .card-detail-img-inline{width:140px; flex:0 0 auto; border-radius:2px;}
   @media (max-width:600px){
     .card-detail-top{flex-direction:column; align-items:center; text-align:left;}
