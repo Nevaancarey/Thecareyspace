@@ -99,7 +99,7 @@
   .card-detail-meta-text{flex:1; min-width:0;}
   .card-detail-meta-text p{color:var(--ink); font-size:0.9rem; margin-bottom:16px;}
   .card-detail-meta-text strong{color:var(--ink);}
-  .card-detail-hero{width:150px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15);}
+  .card-detail-hero{width:112px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15);}
 
   .card-details h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.4rem; color:var(--steel); margin:26px 0 14px;}
   .card-details p{color:var(--muted); font-size:0.92rem; margin-bottom:10px;}
@@ -108,10 +108,23 @@
   .card-details a{color:var(--accent);}
 
   .card-detail-media-row{display:flex; gap:18px; align-items:flex-start; margin-bottom:10px;}
+
+  .card-float-block{overflow:auto;}
+  .card-inline-video{
+    float:right; width:300px; max-width:45%;
+    margin:0 0 14px 18px; border-radius:2px;
+    box-shadow:0 6px 16px rgba(16,30,51,0.15); background:#000;
+  }
+  .card-inline-video-sm{width:260px;}
+  .card-clear{clear:both;}
+
+  @media (max-width:600px){
+    .card-inline-video{float:none; width:100%; max-width:100%; margin:0 0 14px;}
+  }
   .card-detail-img-inline{width:140px; flex:0 0 auto; border-radius:2px;}
   @media (max-width:600px){
     .card-detail-top{flex-direction:column; align-items:center; text-align:left;}
-    .card-detail-hero{width:170px;}
+    .card-detail-hero{width:128px;}
   }
   @media (max-width:500px){
     .card-detail-media-row{flex-direction:column; align-items:center;}
