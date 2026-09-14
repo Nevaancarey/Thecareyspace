@@ -84,37 +84,6 @@
   .card h3{font-size:1.1rem; margin-bottom:8px;}
   .card p{color:var(--muted); font-size:0.92rem;}
 
-  #all-items-grid.grid-projects{gap:36px 30px;}
-  #all-items-grid .card{
-    position:relative;
-    background:transparent;
-    border-style:solid;
-    border-width:52px 18px;
-    border-image-source:url('scroll-bg.png');
-    border-image-slice:95 34 95 34 fill;
-    border-image-width:52px 18px;
-    border-image-repeat:stretch;
-    border-radius:0;
-    padding:14px 10px 18px;
-    box-shadow:0 10px 20px rgba(60,40,10,0.28);
-    transition:transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  #all-items-grid .card:hover{transform:translateY(-3px); box-shadow:0 16px 28px rgba(60,40,10,0.36);}
-  #all-items-grid .card.card-active{box-shadow:0 0 0 2px var(--accent), 0 10px 20px rgba(60,40,10,0.28);}
-
-  #all-items-grid .card .mono{
-    color:#6B4A1F; font-weight:600; letter-spacing:0.04em;
-    background:none; border:none; padding:0; margin-bottom:10px;
-  }
-  #all-items-grid .card h3{
-    font-family:'Space Grotesk',sans-serif; font-weight:700; color:#3B2A14;
-  }
-  #all-items-grid .card p{color:#5B4426;}
-
-  @media (max-width:760px){
-    #all-items-grid .card:hover{transform:none;}
-  }
-
   .awards{columns:2; gap:32px;}
   .awards li{margin-bottom:10px; font-size:0.92rem; color:var(--muted); break-inside:avoid;}
   .awards li strong{color:var(--ink); font-weight:500;}
