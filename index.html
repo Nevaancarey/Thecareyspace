@@ -283,6 +283,102 @@
           <span class="mono">OCT 2025 - JAN 2026</span>
           <h3>SonoStep: Assistive Navigation System</h3>
           <p>Raspberry Pi-based smart cane with a camera-based vision system for obstacle detection, real-time audio feedback, and GPS point-to-point navigation.</p>
+          <span class="card-toggle">View full project details &#9662;</span>
+
+          <div class="card-details">
+            <img src="assets/sonostep-poster.jpg" alt="SonoStep - Empower Every Step" class="card-detail-img">
+            <p class="card-detail-sub"><em>An assistive smart cane for visually impaired</em></p>
+
+            <dl class="card-meta">
+              <div><dt>Team members</dt><dd>Nevaan Carey Meduri, Darsheel Vemula, Tanushya Yallanti</dd></div>
+              <div><dt>School</dt><dd>AS-Level, Key Stone International School, Hyderabad</dd></div>
+              <div><dt>My role</dt><dd>Team Leader - primary building, assembly and testing</dd></div>
+              <div><dt>Contact</dt><dd><a href="mailto:Nevaancarey@gmail.com">Nevaancarey@gmail.com</a></dd></div>
+            </dl>
+
+            <h4>Background</h4>
+            <div class="card-detail-media-row">
+              <img src="assets/sonostep-map.jpg" alt="4.95 million blind individuals in India" class="card-detail-img-inline">
+              <p>The <em>National Blindness and Visual Impairment Survey (2015-2019)</em>, published by the Ministry of Health and Family Welfare (MoHFW) / NPCBVI and RAAB Surveys, estimates the overall prevalence of blindness in India at 0.36% - roughly 4.95 million individuals. Around 26% of expert cane users suffer head injuries or collisions.</p>
+            </div>
+            <p>During my 10th grade, I volunteered with the Sai Nethra Foundation in Hyderabad, India, for nearly five months. Each week, I worked alongside other volunteers to support visually impaired individuals with academic exam preparation, communication skills, and everyday activities.</p>
+            <p>Spending time with the individuals allowed me to understand some of the practical limitations of conventional canes and existing enhanced-cane technologies.</p>
+
+            <h4>The Core Problems with Existing Canes</h4>
+            <ul>
+              <li><strong>Limited Detection:</strong> Covers only ground-level area - cannot alert immediate threats like the next three steps, elevation changes, or head-height hazards.</li>
+              <li><strong>Physical Fatigue:</strong> Continuous sweeping causes strain in wrists, shoulders, back and legs.</li>
+              <li><strong>Low Predictability:</strong> Rapidly urbanizing streets in India, with inconsistent infrastructure, lead to disorientation even in familiar areas. Traditional canes can't warn of fast-moving objects, forcing reactive, unsafe navigation.</li>
+            </ul>
+            <p>While some prototypes used ultrasonic sensors to detect obstacles, they primarily focused on detecting the presence of an obstacle rather than providing richer information about the user's surroundings.</p>
+            <p>This led me to a broader engineering question: could a smart cane provide not only obstacle detection, but also meaningful information about what the obstacle is, where it is coming from, and how the user should respond?</p>
+
+            <h4>Engineering Objective</h4>
+            <p>I set out to explore an enhanced, economical smart cane capable of:</p>
+            <ul>
+              <li>Detecting obstacles in the user's path.</li>
+              <li>Identifying the type of obstacle, rather than simply detecting its presence.</li>
+              <li>Determining the direction from which an obstacle is approaching.</li>
+              <li>Providing contextual audio feedback, allowing the user to understand the surrounding situation through sound.</li>
+            </ul>
+
+            <h4>Technologies Used</h4>
+            <ul class="tag-list">
+              <li>Raspberry Pi</li>
+              <li>MPU6050</li>
+              <li>Neo-6M GPS Module</li>
+              <li>Camera Module</li>
+              <li>Python Programming</li>
+              <li>YOLO-Tiny Object Detection</li>
+              <li>3D Design &amp; Printing (Case)</li>
+            </ul>
+
+            <h4>Challenges</h4>
+            <ul>
+              <li>Poor GPS signal issues.</li>
+              <li>Unexpected YOLO detectability glitches.</li>
+            </ul>
+            <p>After troubleshooting and iterating through connectivity and programming challenges, I achieved a functional prototype that addressed the core requirements of the project. The device was able to:</p>
+            <ul>
+              <li><strong>Detect obstacles</strong> in the user's path and communicate them through voice feedback.</li>
+              <li><strong>Identify the type of obstacle</strong> and relay this information audibly.</li>
+              <li><strong>Determine the direction of movement</strong>, distinguishing whether an obstacle was approaching from the top, bottom, left, or right.</li>
+              <li><strong>Provide contextual audio feedback</strong>, giving the user more information than a conventional obstacle-detection cane.</li>
+            </ul>
+            <p>The prototype was subsequently evaluated through run-through sessions with several visually impaired individuals. Their feedback was highly encouraging, with participants describing the system as useful and helpful in understanding potential obstacles and their movement. They were particularly satisfied with the audio feedback mechanism. This real-world interaction helped validate the core concept while also giving me insight into the importance of making assistive technology intuitive, timely, and easy to interpret.</p>
+
+            <h4>Breakdown of Cost (USD)</h4>
+            <table class="card-cost-table">
+              <thead>
+                <tr><th>Component</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Raspberry Pi 4 Model B</td><td>1</td><td>112</td><td>112</td></tr>
+                <tr><td>MPU6050</td><td>1</td><td>2</td><td>2</td></tr>
+                <tr><td>Neo-6M GPS Module</td><td>1</td><td>5</td><td>5</td></tr>
+                <tr><td>Camera Module</td><td>1</td><td>5</td><td>5</td></tr>
+                <tr><td>3D Printing</td><td>-</td><td>5</td><td>5</td></tr>
+                <tr><td>Aluminum Folding Cane</td><td>1</td><td>10</td><td>10</td></tr>
+                <tr class="cost-total-row"><td colspan="3">TOTAL (Rounded)</td><td>140</td></tr>
+              </tbody>
+            </table>
+
+            <h4>Future Scope</h4>
+            <ul>
+              <li>Integrate AI capabilities to identify more complex situations such as sign boards and traffic signals.</li>
+              <li>Integrate with online maps for suggestions on better routes.</li>
+              <li>Add water and wet-floor detection sensors.</li>
+              <li>Add fall alerts to pre-fed phone numbers.</li>
+            </ul>
+
+            <h4>Support from the School</h4>
+            <p>Our school provided us with access to the <a href="https://www.keystoneeducation.in/our-innovation" target="_blank">Maker's Hive</a> workspace and lab environment, including tools and facilities like a 3D printer and testing equipment. This support allowed us to experiment, prototype, troubleshoot, and refine our design.</p>
+
+            <h4>Recognition</h4>
+            <p>SonoStep received national 2nd place at the 7th edition of the <a href="https://yip.iitkgp.ac.in/results" target="_blank">Young Innovators Program (YIP)</a>, organized by the <a href="https://www.linkedin.com/company/indian-institute-of-technology-kharagpur/" target="_blank">Indian Institute of Technology, Kharagpur</a>. A truly proud moment to receive the cash prize from <a href="https://www.linkedin.com/in/dr-sukanta-majumdar/" target="_blank">Dr. Sukanta Majumdar</a>, Hon'ble Union Minister of State for Education, and Prof. <a href="https://www.linkedin.com/in/suman-chakraborty-415ab3236/" target="_blank">Suman Chakraborty</a>, Director, Indian Institute of Technology, Kharagpur.</p>
+            <p>The program is a prestigious platform dedicated to nurturing scientific curiosity, innovation, and problem-solving among young minds, conducted through a rigorous three-phase selection process involving participation from more than 350 national and international teams.</p>
+            <p>Phase I focused on the submission of project abstracts and detailed scientific proposals. From this pool, shortlisted teams advanced to Phase II, where we were invited to the IIT Kharagpur campus for a three-day residential program to exhibit and demonstrate our working prototypes; these demonstrations were critically evaluated and acclaimed by IIT professors and researchers. In Phase III, the top six qualifying teams from the semifinals presented their innovations through a formal presentation followed by a Q&amp;A session with the jury.</p>
+          </div>
         </div>
 
         <div class="card" id="box-exploration-1">
@@ -387,6 +483,32 @@
 })();
 
 (function(){
+  document.querySelectorAll('#all-items-grid .card').forEach(function(card){
+    var details = card.querySelector('.card-details');
+    var toggle = card.querySelector('.card-toggle');
+    if (!details || !toggle) return;
+
+    card.classList.add('has-details');
+
+    function setExpanded(state){
+      card.classList.toggle('expanded', state);
+      toggle.textContent = state ? 'Show less \u25B4' : 'View full project details \u25BE';
+    }
+
+    card.addEventListener('click', function(e){
+      if (e.target.closest('a')) return;
+      if (e.target.closest('.card-details')) return;
+      setExpanded(!card.classList.contains('expanded'));
+    });
+
+    card.expandDetails = function(){
+      setExpanded(true);
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+  });
+})();
+
+(function(){
   var labels = document.querySelectorAll('.orbit-label');
 
   labels.forEach(function(label){
@@ -403,7 +525,11 @@
       labels.forEach(function(l){ l.classList.remove('orbit-active'); });
       label.classList.add('orbit-active');
 
-      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (typeof box.expandDetails === 'function') {
+        box.expandDetails();
+      } else {
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   });
 })();
