@@ -87,7 +87,7 @@
   #all-items-grid.grid-projects{gap:36px 30px;}
   #all-items-grid .card{
     position:relative;
-    background:#000; /* fallback, fully covered by border-image fill */
+    background:transparent;
     border-style:solid;
     border-width:52px 18px;
     border-image-source:url('scroll-bg.png');
