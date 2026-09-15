@@ -321,6 +321,7 @@
   .marquee-slide video{width:100%; height:100%; object-fit:cover; display:block;}
   .marquee-slide img[src="assets/journal-22.jpg"]{object-position:center 15%;}
   .marquee-slide img[src="assets/journal-31.jpg"]{object-position:center 20%;}
+  .marquee-slide img[src="assets/journal-28.jpg"]{object-position:center 35%;}
 
   @media (max-width:900px){
     .marquee-slide{width:588px;}
@@ -357,6 +358,9 @@
   }
   .lightbox img{
     box-shadow:0 20px 60px rgba(0,0,0,0.4); border-radius:2px; background:#fff;
+  }
+  .lightbox video{
+    box-shadow:0 20px 60px rgba(0,0,0,0.4); border-radius:2px; background:#000;
   }
   .lightbox-content{display:flex; flex-direction:column; align-items:center; gap:14px;}
   .lightbox-caption{
