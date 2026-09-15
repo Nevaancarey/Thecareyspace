@@ -319,6 +319,8 @@
   .marquee-slide{flex:0 0 auto; width:756px; aspect-ratio:16/10; overflow:hidden;}
   .marquee-slide img{width:100%; height:100%; object-fit:cover; display:block;}
   .marquee-slide video{width:100%; height:100%; object-fit:cover; display:block;}
+  .marquee-slide img[src="assets/journal-22.jpg"]{object-position:center 15%;}
+  .marquee-slide img[src="assets/journal-31.jpg"]{object-position:center 20%;}
 
   @media (max-width:900px){
     .marquee-slide{width:588px;}
