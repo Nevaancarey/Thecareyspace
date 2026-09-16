@@ -648,7 +648,7 @@
       if (state) {
         requestAnimationFrame(function(){
           requestAnimationFrame(function(){
-            (title || card).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
           });
         });
       }
