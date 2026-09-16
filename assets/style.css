@@ -432,6 +432,22 @@
   }
   .song-thumb:hover .play-icon{background:var(--accent); color:#101E33;}
 
+  .page-nav{padding:28px 0; border-top:1px solid var(--line);}
+  .page-nav-inner{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;}
+  .page-nav-link{display:flex; flex-direction:column; gap:4px; text-decoration:none;}
+  .page-nav-next{margin-left:auto; text-align:right; align-items:flex-end;}
+  .page-nav-label{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--steel);
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .page-nav-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1rem; color:var(--ink); transition:color 0.2s ease;}
+  .page-nav-link:hover .page-nav-title{color:var(--accent);}
+
+  @media (max-width:600px){
+    .page-nav-inner{flex-direction:column; align-items:stretch; gap:16px;}
+    .page-nav-next{margin-left:0; text-align:right; align-items:flex-end;}
+  }
+
   footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.82rem;}
 
   @media (max-width:760px){
