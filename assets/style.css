@@ -96,11 +96,11 @@
   .card-details{display:none; margin-top:18px; padding-top:18px; border-top:1px solid var(--line); cursor:auto;}
   .card.expanded .card-details{display:block;}
 
-  .card-detail-top{display:flex; gap:24px; align-items:center; margin-bottom:8px;}
-  .card-detail-meta-text{flex:1; min-width:0;}
+  .card-detail-top{display:flex; gap:12px; align-items:center; margin-bottom:8px;}
+  .card-detail-meta-text{flex:0 1 auto; max-width:480px; min-width:0;}
   .card-detail-meta-text p{color:var(--ink); font-size:0.9rem; margin-bottom:16px;}
   .card-detail-meta-text strong{color:var(--ink);}
-  .card-detail-hero{width:112px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:576/864;}
+  .card-detail-hero{width:196px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:576/864;}
 
   .card-details h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.4rem; color:var(--steel); margin:26px 0 14px;}
   .card-subheading{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.98rem; color:var(--ink); margin:18px 0 8px;}
@@ -120,6 +120,7 @@
   }
   video[src="assets/sonostep-trial-clip.mp4"]{aspect-ratio:480/270;}
   video[src="assets/sonostep-award-clip.mp4"]{aspect-ratio:480/268;}
+  img[src="assets/sonostep-team.jpg"]{aspect-ratio:1133/773; object-fit:cover;}
   .card-inline-video-sm{width:260px;}
   .card-clear{clear:both;}
 
@@ -144,7 +145,7 @@
   .card-detail-img-inline{width:280px; flex:0 0 auto; border-radius:2px; aspect-ratio:454/366;}
   @media (max-width:600px){
     .card-detail-top{flex-direction:column; align-items:center; text-align:left;}
-    .card-detail-hero{width:128px;}
+    .card-detail-hero{width:224px;}
   }
   @media (max-width:500px){
     .card-detail-media-row{flex-direction:column; align-items:center;}
@@ -162,6 +163,16 @@
   .card-cost-table th{background:var(--base); color:var(--ink); font-weight:600; text-align:center;}
   .card-cost-table td:not(:first-child){text-align:center;}
   .card-cost-table .cost-total-row td{font-weight:700; color:var(--ink); background:var(--base);}
+
+  .card-tech-row{display:flex; gap:20px; align-items:flex-start; margin:14px 0;}
+  .card-tech-img{width:220px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:896/1152;}
+  table.card-tech-table{width:auto; flex:1; max-width:420px; margin-bottom:0;}
+
+  @media (max-width:600px){
+    .card-tech-row{flex-direction:column; align-items:center;}
+    .card-tech-img{width:200px;}
+    table.card-tech-table{width:100%; max-width:100%;}
+  }
 
   .awards{columns:2; gap:32px;}
   .awards li{margin-bottom:10px; font-size:0.92rem; color:var(--muted); break-inside:avoid;}
