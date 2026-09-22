@@ -310,71 +310,96 @@
           </a>
 
           <div class="card-details">
+            <p>An experimental Raspberry-Pi based smart cane designed to give visually impaired users more information about their surroundings than a conventional cane can provide. Instead of simply detecting an obstacle, the prototype combines computer vision, sensors and audio feedback to identify obstacles and communicate contextual information including their direction of movement.</p>
+
             <div class="card-detail-top">
               <div class="card-detail-meta-text">
                 <p><strong>Team members:</strong> Nevaan Carey Meduri, Darsheel Vemula, Tanushya Yallanti</p>
                 <p><strong>School:</strong> AS-Level, Key Stone International School, Hyderabad</p>
-                <p><strong>My Role:</strong> Team Leader with primary building, assembly and testing</p>
-                <p><strong>Contact:</strong> <a href="mailto:Nevaancarey@gmail.com">Nevaancarey@gmail.com</a></p>
+                <p><strong>My Role:</strong> Primary responsibility for building, assembly and testing of physical prototype, and coordinating</p>
               </div>
               <img src="assets/sonostep-poster.jpg" alt="SonoStep - Empower Every Step" class="card-detail-hero">
             </div>
 
             <h4>Background:</h4>
+            <p>During 10th grade, I volunteered for nearly five months with Sai Nethra Foundation in Hyderabad, supporting visually impaired individuals with academic preparation, communication skills and everyday activities. Working alongside visually impaired individuals gave me a closer understanding of the challenges involved in navigating environments where obstacles may occur outside the limited detection range of a conventional cane.</p>
             <div class="card-detail-media-row">
               <img src="assets/sonostep-map.jpg" alt="4.95 million blind individuals in India" class="card-detail-img-inline">
-              <p>The <em>National Blindness and Visual Impairment Survey (2015-2019)</em>, published by the Ministry of Health and Family Welfare (MoHFW) / NPCBVI and RAAB Surveys, estimates the overall prevalence of blindness in India at 0.36% - roughly 4.95 million individuals. Around 26% of expert cane users suffer head injuries or collisions.</p>
+              <p>Secondary research using <em>The National Blindness and Visual Impairment Survey (2015-2019)</em>, published by the Ministry of Health and Family Welfare (MoHFW) / NPCBVI and RAAB Surveys, estimates the overall prevalence of blindness in India at 0.36% - roughly 4.95 million individuals. Around 26% of expert cane users suffer head injuries or collisions.</p>
             </div>
-            <p>During my 10th grade, I volunteered with the Sai Nethra Foundation in Hyderabad, India, for nearly five months. Each week, I worked alongside other volunteers to support visually impaired individuals with academic exam preparation, communication skills, and everyday activities.</p>
-            <p>Spending time with the individuals allowed me to understand some of the practical limitations of conventional canes and existing enhanced-cane technologies.</p>
 
-            <h4>The Core Problems with Existing Canes:</h4>
-            <ul>
-              <li><strong>Limited Detection:</strong> Covers only ground-level area - cannot alert immediate threats like the next three steps, elevation changes, or head-height hazards.</li>
-              <li><strong>Physical Fatigue:</strong> Continuous sweeping causes strain in wrists, shoulders, back and legs.</li>
-              <li><strong>Low Predictability:</strong> Rapidly urbanizing streets in India, with inconsistent infrastructure, lead to disorientation even in familiar areas. Traditional canes can't warn of fast-moving objects, forcing reactive, unsafe navigation.</li>
-            </ul>
-            <p>While some prototypes used ultrasonic sensors to detect obstacles, they primarily focused on detecting the presence of an obstacle rather than providing richer information about the user's surroundings.</p>
-            <p>This led me to a broader engineering question: could a smart cane provide not only obstacle detection, but also meaningful information about what the obstacle is, where it is coming from, and how the user should respond?</p>
-
-            <h4>Engineering Objective:</h4>
-            <p>I set out to explore an enhanced, economical smart cane capable of:</p>
-            <ul>
-              <li>Detecting obstacles in the user's path.</li>
-              <li>Identifying the type of obstacle, rather than simply detecting its presence.</li>
-              <li>Determining the direction from which an obstacle is approaching.</li>
-              <li>Providing contextual audio feedback, allowing the user to understand the surrounding situation through sound.</li>
-            </ul>
+            <h4>The Engineering Question:</h4>
+            <p>These experiences and findings led me to ask the central engineering question: Could an affordable, easy-to-use smart cane combine obstacle detection, object recognition, and directional information into intuitive audio feedback for visually impaired users, and overcome the limited functionality of existing ultrasonic sensor based devices?</p>
 
             <div class="card-float-block">
               <video class="card-inline-video" src="assets/sonostep-build-clip.mp4" controls preload="metadata"></video>
-              <h4>Technologies Used:</h4>
-              <ul class="tag-list">
-                <li>Raspberry Pi</li>
-                <li>MPU6050</li>
-                <li>Neo-6M GPS Module</li>
-                <li>Camera Module</li>
-                <li>Python Programming</li>
-                <li>YOLO-Tiny Object Detection</li>
-                <li>3D Design &amp; Printing (Case)</li>
-              </ul>
-
-              <h4>Challenges:</h4>
-              <ul>
-                <li>Poor GPS signal issues.</li>
-                <li>Unexpected YOLO detectability glitches.</li>
-              </ul>
+              <h4>What We Built:</h4>
+              <p>SonoStep combined a Raspberry Pi, camera, motion sensor and GPS module with computer-vision software and a custom 3D-printed enclosure.</p>
             </div>
-            <p class="card-clear">After troubleshooting and iterating through connectivity and programming challenges, I achieved a functional prototype that addressed the core requirements of the project. The device was able to:</p>
+            <table class="card-cost-table card-clear">
+              <thead>
+                <tr><th>Technology</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Raspberry Pi 4</td><td>On-device processing and system control</td></tr>
+                <tr><td>Camera Module</td><td>Visual input for object detection</td></tr>
+                <tr><td>YOLO-Tiny</td><td>Real-time object detection</td></tr>
+                <tr><td>Python</td><td>Detection, processing and feedback logic</td></tr>
+                <tr><td>MPU6050</td><td>Motion/orientation sensing</td></tr>
+                <tr><td>Neo-6M GPS</td><td>Location capability</td></tr>
+                <tr><td>3D Printing</td><td>Custom physical enclosure and integration</td></tr>
+              </tbody>
+            </table>
+
+            <h4>My Contribution:</h4>
+            <p>As Team Leader, my work involved integrating the electronic components, assembling the sensing and processing system, writing code and testing the prototype under different conditions, troubleshooting connectivity and detection issues, and iterating the physical implementation. I also worked on validating whether the system's output was understandable and useful when converted into audio feedback.</p>
+
+            <h4>Challenges &amp; Technical Solutions:</h4>
+
+            <p class="card-subheading">1. Robotic Text-to-Speech (TTS)</p>
             <ul>
-              <li><strong>Detect obstacles</strong> in the user's path and communicate them through voice feedback.</li>
-              <li><strong>Identify the type of obstacle</strong> and relay this information audibly.</li>
-              <li><strong>Determine the direction of movement</strong>, distinguishing whether an obstacle was approaching from the top, bottom, left, or right.</li>
-              <li><strong>Provide contextual audio feedback</strong>, giving the user more information than a conventional obstacle-detection cane.</li>
+              <li><strong>Challenge:</strong> Initial eSpeak + pyttsx3 output was highly robotic and lacked natural speech quality.</li>
+              <li><strong>Iteration:</strong> Tested gTTS + pygame, which produced better-quality speech but required an internet connection.</li>
+              <li><strong>Solution:</strong> Returned to offline eSpeak, bypassing the pyttsx3 wrapper and invoking eSpeak directly via subprocess for greater control and predictable execution.</li>
+              <li><strong>Optimization:</strong> Increased amplitude to 200 and reduced speech rate from 175 WPM to 150 WPM, improving intelligibility while retaining offline operation.</li>
+            </ul>
+
+            <p class="card-subheading">2. Concurrent Audio Access from GPS and YOLO</p>
+            <ul>
+              <li><strong>Challenge:</strong> GPS and computer-vision threads could simultaneously trigger TTS, causing audio-resource contention and overlapping instructions.</li>
+              <li><strong>Solution:</strong> Implemented a shared, thread-safe audio pipeline using Python threading.Lock() for mutual exclusion.</li>
+              <li><strong>Implementation:</strong> A single speak() function protected the audio critical section; subprocess.call() synchronously blocked until eSpeak completed.</li>
+              <li><strong>Result:</strong> GPS and YOLO could operate concurrently, while audio output remained serialized and non-overlapping.</li>
+            </ul>
+
+            <p class="card-subheading">3. Real-Time YOLO Performance on Raspberry Pi</p>
+            <ul>
+              <li><strong>Challenge:</strong> Initial standard YOLO + USB webcam pipeline produced excessive inference latency and insufficient real-time performance on the Raspberry Pi.</li>
+              <li><strong>Optimization:</strong> Reduced frame resolution and inference frequency, then replaced standard YOLO with YOLOv3-Tiny to reduce computational requirements.</li>
+              <li><strong>Camera Upgrade:</strong> Replaced cv2.VideoCapture() USB capture with Raspberry Pi Camera Module 3 + Picamera2, configured at 640&times;480, 30 FPS.</li>
+              <li><strong>Pipeline Optimization:</strong> Added a dedicated camera-capture thread so frame acquisition remained independent of YOLO inference: Camera &rarr; Latest Frame &rarr; YOLO &rarr; NMS &rarr; Spatial Classification.</li>
+              <li><strong>Result:</strong> Reduced processing overhead and created a more responsive real-time vision pipeline.</li>
+            </ul>
+
+            <p class="card-subheading">4. RGB/BGR Channel Mismatch</p>
+            <ul>
+              <li><strong>Challenge:</strong> Initial camera output showed unnatural colors, including blue-tinted people and orange skies.</li>
+              <li><strong>Diagnosis:</strong> Identified an RGB/BGR channel-order mismatch between Picamera2's RGB888 output and OpenCV's BGR convention.</li>
+              <li><strong>Solution:</strong> Applied explicit RGB &rarr; BGR conversion using cv2.cvtColor() before OpenCV/YOLO processing.</li>
+              <li><strong>Result:</strong> Corrected color reproduction and ensured YOLO received properly ordered image channels.</li>
+            </ul>
+
+            <h4>Prototype Outcome:</h4>
+            <p>The final prototype demonstrated the core concept:</p>
+            <ul>
+              <li><strong>Obstacle detection</strong> - Detected objects in the user's path and communicated them through voice feedback.</li>
+              <li><strong>Object identification</strong> - Provided information about the type of detected obstacle (pre-fed).</li>
+              <li><strong>Directional information</strong> - Distinguished movement from different directions, including top, bottom, left and right.</li>
+              <li><strong>Contextual audio feedback</strong> - translated visual information into spoken feedback intended to help the user interpret the surrounding environment.</li>
             </ul>
             <div class="card-float-block">
               <video class="card-inline-video card-inline-video-sm" src="assets/sonostep-trial-clip.mp4" controls preload="metadata"></video>
-              <p>The prototype was subsequently evaluated through run-through sessions with several visually impaired individuals. Their feedback was highly encouraging, with participants describing the system as useful and helpful in understanding potential obstacles and their movement. They were particularly satisfied with the audio feedback mechanism. This real-world interaction helped validate the core concept while also giving me insight into the importance of making assistive technology intuitive, timely, and easy to interpret.</p>
+              <p>The prototype was subsequently demonstrated through run-through sessions with visually impaired individuals. Their feedback helped us understand an important design consideration beyond technical accuracy: assistive technology must communicate information quickly, clearly and intuitively.</p>
             </div>
 
             <h4>Breakdown of Cost (USD):</h4>
@@ -393,32 +418,37 @@
               </tbody>
             </table>
 
-            <h4>Future Scope:</h4>
-            <ul>
-              <li>Integrate AI capabilities to identify more complex situations such as sign boards and traffic signals.</li>
-              <li>Integrate with online maps for suggestions on better routes.</li>
-              <li>Add water and wet-floor detection sensors.</li>
-              <li>Add fall alerts to pre-fed phone numbers.</li>
-            </ul>
-
-            <h4>Support from the School:</h4>
-            <p>Our school provided us with access to the <a href="https://www.keystoneeducation.in/our-innovation" target="_blank">Maker's Hive</a> workspace and lab environment, including tools and facilities like a 3D printer and testing equipment. This support allowed us to experiment, prototype, troubleshoot, and refine our design.</p>
-
             <div class="card-float-block">
               <div class="card-float-stack">
                 <video class="card-inline-video" src="assets/sonostep-award-clip.mp4" controls preload="metadata"></video>
                 <img src="assets/sonostep-booth.jpg" alt="SonoStep team at the Young Innovators Program booth, IIT Kharagpur" class="card-inline-img">
               </div>
               <h4>Recognition:</h4>
-              <p>SonoStep received national 2nd place at the 7th edition of the <a href="https://yip.iitkgp.ac.in/results" target="_blank">Young Innovators Program (YIP)</a>, organized by the <a href="https://lnkd.in/p/dGD7UUPz" target="_blank">Indian Institute of Technology, Kharagpur</a>. A truly proud moment to receive the cash prize from <a href="https://x.com/DrSukantaBJP/status/2007788289441632693?s=20" target="_blank">Dr. Sukanta Majumdar</a>, Hon'ble Union Minister of State for Education, and Prof. <a href="https://www.linkedin.com/in/suman-chakraborty-415ab3236/" target="_blank">Suman Chakraborty</a>, Director, Indian Institute of Technology, Kharagpur.</p>
-              <p>The program is a prestigious platform dedicated to nurturing scientific curiosity, innovation, and problem-solving among young minds, conducted through a rigorous three-phase selection process involving participation from more than 350 national and international teams.</p>
-              <p>Phase I focused on the submission of project abstracts and detailed scientific proposals. From this pool, shortlisted teams advanced to Phase II, where we were invited to the IIT Kharagpur campus for a three-day residential program to exhibit and demonstrate our working prototypes; these demonstrations were critically evaluated and acclaimed by IIT professors and researchers. In Phase III, the top six qualifying teams from the semifinals presented their innovations through a formal presentation followed by a Q&amp;A session with the jury.</p>
+              <p>Received national 2nd place at the 7th edition of the <a href="https://yip.iitkgp.ac.in/results" target="_blank">Young Innovators Program (YIP)</a>, organized by the <a href="https://lnkd.in/p/dGD7UUPz" target="_blank">Indian Institute of Technology, Kharagpur</a>. A truly proud moment to receive the prize from <a href="https://x.com/DrSukantaBJP/status/2007788289441632693?s=20" target="_blank">Dr. Sukanta Majumdar</a>, Hon'ble Union Minister of State for Education, and Prof. <a href="https://www.linkedin.com/in/suman-chakraborty-415ab3236/" target="_blank">Suman Chakraborty</a>, Director, Indian Institute of Technology, Kharagpur.</p>
+              <p>The team progressed through a three-phase selection process involving 350+ national and international teams, eventually reaching the final stage with six qualifying teams. At IIT Kharagpur, we exhibited and demonstrated the working prototype to professors and presented the project to a jury during the final evaluation.</p>
             </div>
 
             <div class="card-side-by-side">
               <img src="assets/sonostep-feedback.jpg" alt="Judge feedback notes from the Young Innovators Program">
               <img src="assets/sonostep-certificate.jpg" alt="Certificate of Participation - Young Innovators Program, IIT Kharagpur">
             </div>
+
+            <h4>Support from the School:</h4>
+            <p>Our school Keystone International School provided guidance, resources, and access to the <a href="https://www.keystoneeducation.in/our-innovation" target="_blank">Maker's Hive</a> workspace and lab for designing, 3D printing, prototyping, testing, and refining the device. Most importantly the school also supported our outreach to organizations serving visually impaired individuals, helping us seek their constant inputs and feedback throughout the development process.</p>
+
+            <h4>What I Learned:</h4>
+            <p>SonoStep changed how I think about engineering projects. I learned that building a working prototype is only one part of the process. The more difficult question is whether the technology communicates the right information, at the right time, in a form that a real user can understand.</p>
+            <p>During this process I gained hands-on exposure to technologies I had not worked with before, including 3D printing and Computer Vision. The project also pushed me beyond individual components and into system-level thinking integrating hardware, software, sensing, computer vision, physical design and user feedback into one working prototype.</p>
+            <p>Most importantly, working directly with visually impaired individuals reinforced the importance of designing with users rather than only for users.</p>
+
+            <h4>Future Scope:</h4>
+            <ul>
+              <li>Improve object detection in low-light and crowded environments.</li>
+              <li>Integrate AI capabilities to identify more variety of objects such as sign boards and traffic signals.</li>
+              <li>Integrate with online maps for suggestions on better routes.</li>
+              <li>Add water and wet-floor detection sensors.</li>
+              <li>Add fall alerts to preloaded phone numbers.</li>
+            </ul>
           </div>
         </div>
 
