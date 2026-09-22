@@ -100,7 +100,7 @@
   .card-detail-meta-text{flex:0 1 auto; max-width:480px; min-width:0;}
   .card-detail-meta-text p{color:var(--ink); font-size:0.9rem; margin-bottom:16px;}
   .card-detail-meta-text strong{color:var(--ink);}
-  .card-detail-hero{width:196px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:576/864;}
+  .card-detail-hero{width:196px; flex:0 0 auto; margin-left:19%; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:576/864;}
 
   .card-details h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.4rem; color:var(--steel); margin:26px 0 14px;}
   .card-subheading{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.98rem; color:var(--ink); margin:18px 0 8px;}
@@ -108,6 +108,7 @@
   .card-details ul{margin:0 0 10px 20px; padding:0;}
   .card-details li{color:var(--muted); font-size:0.92rem; margin-bottom:6px;}
   .card-details a{color:var(--accent);}
+  .card-recognition-block a{color:#1560BD;}
 
   .card-detail-media-row{display:flex; gap:18px; align-items:flex-start; margin-bottom:10px;}
 
@@ -120,7 +121,7 @@
   }
   video[src="assets/sonostep-trial-clip.mp4"]{aspect-ratio:480/270;}
   video[src="assets/sonostep-award-clip.mp4"]{aspect-ratio:480/268;}
-  img[src="assets/sonostep-team.jpg"]{aspect-ratio:1133/773; object-fit:cover;}
+  img[src="assets/sonostep-team.png"]{aspect-ratio:1133/773; object-fit:cover; background:transparent;}
   .card-inline-video-sm{width:260px;}
   .card-clear{clear:both;}
 
@@ -164,7 +165,7 @@
   .card-cost-table td:not(:first-child){text-align:center;}
   .card-cost-table .cost-total-row td{font-weight:700; color:var(--ink); background:var(--base);}
 
-  .card-tech-row{display:flex; gap:20px; align-items:flex-start; margin:14px 0;}
+  .card-tech-row{display:flex; gap:48px; align-items:flex-start; margin:14px 0;}
   .card-tech-img{width:220px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:896/1152;}
   table.card-tech-table{width:auto; flex:1; max-width:420px; margin-bottom:0;}
 
