@@ -141,7 +141,7 @@
     .card-side-by-side{flex-direction:column;}
     .card-side-by-side img{width:100%;}
   }
-  .card-detail-img-inline{width:140px; flex:0 0 auto; border-radius:2px; aspect-ratio:454/366;}
+  .card-detail-img-inline{width:280px; flex:0 0 auto; border-radius:2px; aspect-ratio:454/366;}
   @media (max-width:600px){
     .card-detail-top{flex-direction:column; align-items:center; text-align:left;}
     .card-detail-hero{width:128px;}
