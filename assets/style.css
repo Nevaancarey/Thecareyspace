@@ -103,6 +103,7 @@
   .card-detail-hero{width:112px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:576/864;}
 
   .card-details h4{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.4rem; color:var(--steel); margin:26px 0 14px;}
+  .card-subheading{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.98rem; color:var(--ink); margin:18px 0 8px;}
   .card-details p{color:var(--muted); font-size:0.92rem; margin-bottom:10px;}
   .card-details ul{margin:0 0 10px 20px; padding:0;}
   .card-details li{color:var(--muted); font-size:0.92rem; margin-bottom:6px;}
