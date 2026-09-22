@@ -332,27 +332,34 @@
             <p>These experiences and findings led me to ask the central engineering question: Could an affordable, easy-to-use smart cane combine obstacle detection, object recognition, and directional information into intuitive audio feedback for visually impaired users, and overcome the limited functionality of existing ultrasonic sensor based devices?</p>
 
             <div class="card-float-block">
-              <video class="card-inline-video" src="assets/sonostep-build-clip.mp4" controls preload="metadata"></video>
+              <img src="assets/sonostep-team.jpg" alt="Team members building and assembling the SonoStep prototype" class="card-inline-video">
               <h4>What We Built:</h4>
               <p>SonoStep combined a Raspberry Pi, camera, motion sensor and GPS module with computer-vision software and a custom 3D-printed enclosure.</p>
             </div>
-            <table class="card-cost-table card-clear">
-              <thead>
-                <tr><th>Technology</th><th>Purpose</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Raspberry Pi 4</td><td>On-device processing and system control</td></tr>
-                <tr><td>Camera Module</td><td>Visual input for object detection</td></tr>
-                <tr><td>YOLO-Tiny</td><td>Real-time object detection</td></tr>
-                <tr><td>Python</td><td>Detection, processing and feedback logic</td></tr>
-                <tr><td>MPU6050</td><td>Motion/orientation sensing</td></tr>
-                <tr><td>Neo-6M GPS</td><td>Location capability</td></tr>
-                <tr><td>3D Printing</td><td>Custom physical enclosure and integration</td></tr>
-              </tbody>
-            </table>
+
+            <div class="card-tech-row">
+              <img src="assets/sonostep-integration.jpg" alt="Smart Integration diagram - camera, moisture sensor, GPS and audio feedback" class="card-tech-img">
+              <table class="card-cost-table card-tech-table">
+                <thead>
+                  <tr><th>Technology</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Raspberry Pi 4</td><td>On-device processing and system control</td></tr>
+                  <tr><td>Camera Module</td><td>Visual input for object detection</td></tr>
+                  <tr><td>YOLO-Tiny</td><td>Real-time object detection</td></tr>
+                  <tr><td>Python</td><td>Detection, processing and feedback logic</td></tr>
+                  <tr><td>MPU6050</td><td>Motion/orientation sensing</td></tr>
+                  <tr><td>Neo-6M GPS</td><td>Location capability</td></tr>
+                  <tr><td>3D Printing</td><td>Custom physical enclosure and integration</td></tr>
+                </tbody>
+              </table>
+            </div>
 
             <h4>My Contribution:</h4>
-            <p>As Team Leader, my work involved integrating the electronic components, assembling the sensing and processing system, writing code and testing the prototype under different conditions, troubleshooting connectivity and detection issues, and iterating the physical implementation. I also worked on validating whether the system's output was understandable and useful when converted into audio feedback.</p>
+            <div class="card-float-block">
+              <video class="card-inline-video" src="assets/sonostep-build-clip.mp4" controls preload="metadata"></video>
+              <p>As Team Leader, my work involved integrating the electronic components, assembling the sensing and processing system, writing code and testing the prototype under different conditions, troubleshooting connectivity and detection issues, and iterating the physical implementation. I also worked on validating whether the system's output was understandable and useful when converted into audio feedback.</p>
+            </div>
 
             <h4>Challenges &amp; Technical Solutions:</h4>
 
