@@ -141,6 +141,17 @@
   .card-float-stack{float:right; width:280px; max-width:45%; margin:0 0 14px 18px; display:flex; flex-direction:column; gap:10px;}
   .card-float-stack .card-inline-video{float:none; width:100%; max-width:100%; margin:0;}
   .card-youtube-embed{aspect-ratio:16/9;}
+  .card-youtube-thumb{
+    position:relative; background-size:cover; background-position:center;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .yt-play-icon{
+    display:flex; align-items:center; justify-content:center;
+    width:56px; height:56px; border-radius:50%;
+    background:rgba(16,30,51,0.75); color:#fff;
+    font-size:1.1rem; padding-left:4px; transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .card-youtube-thumb:hover .yt-play-icon{background:var(--accent); transform:scale(1.08);}
   .card-inline-img{width:100%; display:block; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:700/516;}
 
   .card-side-by-side{display:flex; gap:20px; margin-top:20px;}
