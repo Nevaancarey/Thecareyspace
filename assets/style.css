@@ -166,7 +166,7 @@
   .card-cost-table td:not(:first-child){text-align:center;}
   .card-cost-table .cost-total-row td{font-weight:700; color:var(--ink); background:var(--base);}
 
-  .card-tech-row{display:flex; gap:48px; align-items:flex-start; margin:14px 0;}
+  .card-tech-row{display:flex; gap:48px; align-items:flex-start; justify-content:center; margin:14px 0;}
   .card-tech-img{width:220px; flex:0 0 auto; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:896/1152;}
   table.card-tech-table{width:auto; flex:1; max-width:420px; margin-bottom:0;}
 
