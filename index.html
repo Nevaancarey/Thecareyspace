@@ -357,7 +357,9 @@
 
             <h4>My Contribution:</h4>
             <div class="card-float-block">
-              <iframe class="card-inline-video card-youtube-embed" src="https://www.youtube.com/embed/ZGtxCsIL9go" title="SonoStep build process" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <div class="card-inline-video card-youtube-embed card-youtube-thumb" data-yt-id="ZGtxCsIL9go" style="background-image:url('https://img.youtube.com/vi/ZGtxCsIL9go/hqdefault.jpg');" role="button" aria-label="Play SonoStep build process video" tabindex="0">
+                <span class="yt-play-icon">&#9658;</span>
+              </div>
               <p>As Team Leader, my work involved integrating the electronic components, assembling the sensing and processing system, writing code and testing the prototype under different conditions, troubleshooting connectivity and detection issues, and iterating the physical implementation. I also worked on validating whether the system's output was understandable and useful when converted into audio feedback.</p>
             </div>
 
@@ -424,7 +426,9 @@
 
             <div class="card-float-block card-recognition-block">
               <div class="card-float-stack">
-                <iframe class="card-inline-video card-youtube-embed" src="https://www.youtube.com/embed/qwiW-pv1ChI" title="SonoStep award recognition" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="card-inline-video card-youtube-embed card-youtube-thumb" data-yt-id="qwiW-pv1ChI" style="background-image:url('https://img.youtube.com/vi/qwiW-pv1ChI/hqdefault.jpg');" role="button" aria-label="Play SonoStep award recognition video" tabindex="0">
+                  <span class="yt-play-icon">&#9658;</span>
+                </div>
                 <img src="assets/sonostep-booth.jpg" alt="SonoStep team at the Young Innovators Program booth, IIT Kharagpur" class="card-inline-img">
               </div>
               <h4>Recognition:</h4>
@@ -648,6 +652,7 @@
   <div class="lightbox-content">
     <img id="lightbox-img" src="" alt="">
     <video id="lightbox-video" style="display:none;" controls playsinline></video>
+    <iframe id="lightbox-youtube" style="display:none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <div id="lightbox-caption" class="lightbox-caption"></div>
   </div>
   <button class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Next photo">&#8250;</button>
@@ -733,6 +738,7 @@ var LightboxGallery = (function(){
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightbox-img');
   var lightboxVideo = document.getElementById('lightbox-video');
+  var lightboxYoutube = document.getElementById('lightbox-youtube');
   var lightboxPrev = document.getElementById('lightbox-prev');
   var lightboxNext = document.getElementById('lightbox-next');
   var lightboxDots = document.getElementById('lightbox-dots');
@@ -762,6 +768,8 @@ var LightboxGallery = (function(){
     lightboxVideo.removeAttribute('src');
     lightboxVideo.load();
     lightboxVideo.style.display = 'none';
+    lightboxYoutube.src = '';
+    lightboxYoutube.style.display = 'none';
     lightboxImg.style.display = 'block';
   }
 
@@ -815,6 +823,32 @@ var LightboxGallery = (function(){
     lightboxVideo.play().catch(function(){});
   }
 
+  function openYoutube(videoId, anchorEl){
+    gallery = [];
+    lightboxImg.style.display = 'none';
+    lightboxVideo.style.display = 'none';
+    lightboxPrev.style.display = 'none';
+    lightboxNext.style.display = 'none';
+    lightboxDots.style.display = 'none';
+    lightboxDots.innerHTML = '';
+    lightboxCaption.style.display = 'none';
+    lightboxCaption.textContent = '';
+
+    var w = Math.min(900, window.innerWidth * 0.92);
+    var h = w * 9 / 16;
+    if (h > window.innerHeight * 0.85) {
+      h = window.innerHeight * 0.85;
+      w = h * 16 / 9;
+    }
+    lightboxYoutube.style.width = w + 'px';
+    lightboxYoutube.style.height = h + 'px';
+    lightboxYoutube.style.display = 'block';
+    lightboxYoutube.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+    lightbox.style.display = 'flex';
+  }
+
+  lightboxYoutube.addEventListener('click', function(e){ e.stopPropagation(); });
+
   lightboxPrev.addEventListener('click', function(e){ e.stopPropagation(); show(current - 1); });
   lightboxNext.addEventListener('click', function(e){ e.stopPropagation(); show(current + 1); });
   lightboxVideo.addEventListener('click', function(e){ e.stopPropagation(); });
@@ -831,7 +865,7 @@ var LightboxGallery = (function(){
     else if (e.key === 'Escape') { lightbox.style.display = 'none'; closeVideo(); }
   });
 
-  return { open: open, openVideo: openVideo };
+  return { open: open, openVideo: openVideo, openYoutube: openYoutube };
 })();
 
 (function(){
@@ -860,6 +894,21 @@ var LightboxGallery = (function(){
     img.addEventListener('click', function(e){
       e.stopPropagation();
       LightboxGallery.open(gallery, parseInt(img.getAttribute('data-idx'), 10), 'cover');
+    });
+  });
+})();
+
+(function(){
+  if (!LightboxGallery) return;
+
+  document.querySelectorAll('.card-youtube-thumb').forEach(function(thumb){
+    function trigger(e){
+      e.stopPropagation();
+      LightboxGallery.openYoutube(thumb.getAttribute('data-yt-id'));
+    }
+    thumb.addEventListener('click', trigger);
+    thumb.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger(e); }
     });
   });
 })();
