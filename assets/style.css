@@ -110,6 +110,14 @@
   .card-details a{color:var(--accent);}
   .card-recognition-block a{color:#1560BD;}
 
+  a[href="https://yip.iitkgp.ac.in/results"],
+  a[href="https://lnkd.in/p/dGD7UUPz"],
+  a[href="https://x.com/DrSukantaBJP/status/2007788289441632693?s=20"],
+  a[href="https://www.keystoneeducation.in/"],
+  a[href="https://www.keystoneeducation.in/our-innovation"]{
+    color:#1560BD; font-weight:700;
+  }
+
   .card-detail-media-row{display:flex; gap:18px; align-items:flex-start; margin-bottom:10px;}
 
   .card-float-block{overflow:auto;}
