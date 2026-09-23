@@ -131,6 +131,7 @@
 
   .card-float-stack{float:right; width:280px; max-width:45%; margin:0 0 14px 18px; display:flex; flex-direction:column; gap:10px;}
   .card-float-stack .card-inline-video{float:none; width:100%; max-width:100%; margin:0;}
+  .card-youtube-embed{aspect-ratio:16/9;}
   .card-inline-img{width:100%; display:block; border-radius:2px; box-shadow:0 6px 16px rgba(16,30,51,0.15); aspect-ratio:700/516;}
 
   .card-side-by-side{display:flex; gap:20px; margin-top:20px;}
