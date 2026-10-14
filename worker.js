@@ -2,7 +2,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const cookie = request.headers.get('Cookie') || '';
-    const isAuthed = cookie.includes('carey_auth=ok');
+    const isAuthed = !PASSWORD_ENABLED || cookie.includes('carey_auth=ok');
 
     // Always allow images/resume/etc to load, even before login,
     // so the blurred photo on the login screen can display.
@@ -81,4 +81,6 @@ function loginPage(wrongPassword) {
 </html>`;
 }
 
+// Set to false to open the site to everyone, true to require the password.
+const PASSWORD_ENABLED = false;
 const SITE_PASSWORD = "1";
